@@ -1,0 +1,123 @@
+.maiuscula {
+  text-transform: uppercase;
+}
+
+.minuscula {
+  text-transform: lowercase;
+}
+
+.place-info-icon {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  display: block;
+  float: left;
+  /*height: 120px;*/
+  width: 40px;
+  text-align: center;
+  margin-bottom: 0px;
+  padding-top: 0px;
+
+  background: rgba(0, 0, 0, 0.2);
+}
+.place-info-icon > img {
+  max-width: 100%;
+  /*border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+
+.build {
+  padding-right: 3px;
+}
+.place-info-box-icon {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  display: block;
+  float: left;
+  /*height: 120px;*/
+  width: 260px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+.place-info-box-icon > img {
+  max-width: 100%;
+  /*border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+
+
+
+.unidades {
+  text-align: center;
+  font-size:15px;
+  font-weight:bold;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.linha-unidades {
+  margin-top: 1px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.titulo-laranja {
+  color: #cd7b53;
+  font-size:12px;
+  font-weight:bold;
+  text-align: left;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+.endereco {
+  font-size:10px;
+  text-align: left;
+  font-weight:bold;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+.col-comp-margem2{
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+.col-comp-margem{
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-comp-margem-det{
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 0px;
+}

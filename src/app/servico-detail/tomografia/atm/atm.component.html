@@ -1,0 +1,42 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Outras finalidades -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickATM()">ATM
+        <i  [ngClass] ="(!tomografiaService.isAtm ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isAtm">
+    <div class="row alt-linha-p"><!--Pesquisa de fratura e/ou perfuração-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">ATM boca fechada
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.atm.isAtmBocaFechada"
+              (change)='fMsgSnackBar(tomografiaService.atm.isAtmBocaFechada, tomografiaService.atm.idAtmBocaFechada)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">ATM boca aberta
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.atm.isAtmBocaAberta"
+              (change)='fMsgSnackBar(tomografiaService.atm.isAtmBocaAberta, tomografiaService.atm.idAtmBocaAberta)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">ATM repouso
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.atm.isAtmRepouso"
+              (change)='fMsgSnackBar(tomografiaService.atm.isAtmRepouso, tomografiaService.atm.idAtmRepouso)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+  </div>
+</div>

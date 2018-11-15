@@ -1,0 +1,64 @@
+<div [@servicoAppeared]="ServicoState">
+  <div class="place-info-box">
+    <span class="place-info-box-icon"><img src="assets/img/servicos/icon_carrinho.png" /></span>
+    <div class="place-info-box-content">
+      <div class="box box-solid col-comp-margem">
+        <div >
+          <h6><b>LISTA DE EXAMES REQUISITADOS</b></h6>
+        </div>
+        <div class="box-body col-comp-margem">
+          <div *ngIf='!tomografiaService.fExistExamTomo() &&
+                      !radiologiaService.fExistRadiologia() &&
+                      !docOrtoService.fExistDocOrtodonticas() &&
+                      !escaneamentoIntraoralService.fExistEscaneamentointraoral()'><!-- /Seu carrinho está vazio -->
+            <p class="text-left">
+              Seu carrinho está vazio!
+            </p>
+          </div>
+          <div class="col-sm-3 col-xs-12 col-comp-margem" *ngIf='tomografiaService.fExistExamTomo()' >
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+                <b> Tomografia Computadorizada</b>
+                <mt-exam-tc-itens></mt-exam-tc-itens>
+            </div>
+          </div>
+          <div class="col-sm-3 col-xs-12 col-comp-margem" *ngIf='radiologiaService.fExistRadiologia()' >
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+                <b> Radiologia Digital</b>
+                <mt-exam-radiologia-itens></mt-exam-radiologia-itens>
+            </div>
+          </div>
+          <div class="col-sm-3 col-xs-12 col-comp-margem" *ngIf='docOrtoService.fExistDocOrtodonticas()' >
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+                <b> Documentações Ortodônticas</b>
+                <mt-exam-documentacoes-itens></mt-exam-documentacoes-itens>
+            </div>
+          </div>
+          <div class="col-sm-3 col-xs-12 col-comp-margem" *ngIf='escaneamentoIntraoralService.fExistEscaneamentointraoral()' >
+            <div>
+                <i class="fa fa-shopping-cart"></i>
+                <b> Escaneamento Intraoral</b>
+                <mt-exam-escaneamento-intraoral-itens></mt-exam-escaneamento-intraoral-itens>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="box-footer">
+          <div class="pull-right">
+            <button type="button"
+                    [disabled]='!sharedService.fValidaExisteServicos()'
+                    (click)="clearLista()"
+                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Limpar Lista</button>
+            <button type="button" [disabled]="!sharedService.fRequisicaoValida()"
+                    (click)='fecharPedido()'
+                    class="btn btn-success btn-sm"><i class="fa fa-credit-card"></i> Fechar Pedido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,265 @@
+<div class="box-body menu-item-info-box">
+  <div class="row col-comp-margem alt-linha">
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickRadiografiaExtraorais()">Radiografia extraorais
+        <i  [ngClass] ="(!radiologiaService.isRadiografiaExtraorais ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!radiologiaService.isRadiografiaExtraorais">
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">Panorâmica
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.radiografiaExtraorais.isPanoramica"  (click)="fPanoramica()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha-p">
+        <h5><label class="container">Cefalométrica de perfil
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.radiografiaExtraorais.isCefalometricaPerfil"  (click)="fCefalometricaPerfil()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">PA
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.radiografiaExtraorais.isPA"  (click)="fPA()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha-p">
+        <h5><label class="container">Mão e punho
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.radiografiaExtraorais.isMaoPunho"  (click)="fMaoPunho()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <p></p>
+    <div class="row col-comp-margem"><!--linha separação  -->
+      <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+    </div>
+    <p></p>
+
+    <div class="row col-comp-margem" >
+      <button type="button" class="btn btn-default search-link btn-xs fa fa-sliders"
+              (click)="fHabTracado()">
+        Seleção de Traçado(s):</button>
+    </div>
+    <div *ngIf="habTracado">
+      <div class="row " >
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Tip Edge
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                                      !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                                      !radiologiaService.radiografiaExtraorais.isPA &&
+                                                      !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isTipEdge"  (click)="fTipEdge()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Tweed
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                                      !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                                      !radiologiaService.radiografiaExtraorais.isPA &&
+                                                      !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isTweed"  (click)="fTweed()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Delmanto
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isDelmanto"  (click)="fDelmanto()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Petrovic
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isPetrovic"  (click)="fPetrovic()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+
+      </div>
+      <div class="row " >
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Erupção de 3º molar
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isErupcao3Molar"  (click)="fErupcao3Molar()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Ricketts
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isRicketts"  (click)="fRicketts()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Bimler
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isBimler"  (click)="fBimler()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Jarabak
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isJarabak"  (click)="fJarabak()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+
+      </div>
+      <div class="row " >
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">I.B.E.O.
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isIBEO"  (click)="fIBEO()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Downs
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isDowns"  (click)="fDowns()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">USP/Unicamp
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isUspUnicamp"  (click)="fUspUnicamp()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Ricketts frontal
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isRickettsFrontal"  (click)="fRickettsFrontal()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+
+      </div>
+      <div class="row " >
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Adenóides
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isAdenoides"  (click)="fAdenoides()" >
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Schwarz
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isSchwarz"  (click)="fSchwarz()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Padrão Profis
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isPadraoProfis"  (click)="fPadraoProfis()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">MacNamara
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isMacNamara"  (click)="fMacNamara()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+
+      </div>
+      <div class="row " >
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">Steiner
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isSteiner"  (click)="fSteiner()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">VJMJ
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isVJMJ"  (click)="fVJMJ()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 alt-linha" >
+          <h6><label class="container-p">USP
+            <input type="checkbox" name="" [disabled]="!radiologiaService.radiografiaExtraorais.isPanoramica &&
+                                            !radiologiaService.radiografiaExtraorais.isCefalometricaPerfil &&
+                                            !radiologiaService.radiografiaExtraorais.isPA &&
+                                            !radiologiaService.radiografiaExtraorais.isMaoPunho"
+                [checked]="radiologiaService.radiografiaExtraorais.isUSP"  (click)="fUSP()">
+            <span class="checkmark-p" ></span>
+          </label></h6>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,102 @@
+<!--INICIO DO CONTEUDO-->
+      <section class="content-header">
+      </section>
+
+      <section class="content">
+        <section class="invoice">
+              <form #f="ngForm"  (ngSubmit)="onSubmit(f)">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h2 class="page-header">
+                      <i class="fa fa-medkit fa-2x" aria-hidden="true"></i>
+                      Preencha o pedido de Exames
+                    </h2>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!-- accepted payments column -->
+                  <div class="col-sm-6 col-xs-12">
+                    <p class="lead titulo-laranja1">Protocolo para cirurgia guiada</p>
+                    <div class="form-check form-check-inline col-sm-5 col-xs-12 col-comp-margem">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                        name= "Compass_3D" [(ngModel)]="Protocolo_cirurgia_guiada.Compass_3D">
+                      <label class="form-check-label col-sem-margem1" for="inlineCheckbox1">Compass 3D</label>
+                    </div>
+                    <div class="form-check form-check-inline col-sm-7 col-xs-12 col-comp-margem">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                        name= "Mandibula" [(ngModel)]="Protocolo_cirurgia_guiada.Mandibula">
+                      <label class="form-check-label col-sem-margem1" for="inlineCheckbox2">Mandíbula</label>
+                    </div>
+                    <div class="form-check form-check-inline col-sm-5 col-xs-12 col-comp-margem">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                        name= "Smart_Solutions" [(ngModel)]="Protocolo_cirurgia_guiada.Smart_Solutions">
+                      <label class="form-check-label col-sem-margem1" for="inlineCheckbox1">Smart Solutions</label>
+                    </div>
+                    <div class="form-check form-check-inline col-sm-7 col-xs-12 col-comp-margem">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                        name= "Maxila" [(ngModel)]="Protocolo_cirurgia_guiada.Maxila">
+                      <label class="form-check-label col-sem-margem1" for="inlineCheckbox2">Maxila</label>
+                    </div>
+
+                      <div class="total-gray col-sm-12 col-xs-12 col-comp-margem">
+                        <div class="gray col-comp-margem">
+                          <div class="circle">
+                          </div>
+                        </div>
+                        <div class="lateral-gray col-comp-margem">
+                          <p class="space">
+                            <span class="titulop">Cirurgia Guiada parcial </span>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">+Laudo e impressão</label>
+                          </p>
+                          Tomografia do paciente ( Dicon)
+                          <br>Escaneamento Integral
+                          <br>Planejamento + guia com:
+                          <p>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">1 furo</label>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">2 furos</label>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">3 furos</label>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">4 furos</label>
+                            <input type="checkbox" id="" value=""  name="">
+                            <label  class="light"  for="">5 furos</label>
+                          </p>
+                        </div>
+                      </div>
+                      <hr>
+
+
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-6 col-xs-12">
+                    <p class="lead titulo-laranja1">Protocolo para cirurgia guiada</p>
+
+                        <div class="form-check form-check-inline col-sm-6 col-xs-12">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                          <label class="form-check-label" for="inlineCheckbox1">Compass 3D</label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-6 col-xs-12">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                          <label class="form-check-label" for="inlineCheckbox2">Mandíbula</label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-3 col-xs-12">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                          <label class="form-check-label" for="inlineCheckbox1">Compass 3D</label>
+                        </div>
+                        <div class="form-check form-check-inline col-sm-6 col-xs-12">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                          <label class="form-check-label" for="inlineCheckbox2">Mandíbula</label>
+                        </div>
+
+
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <button type="submit" class="btm btn-primary">submit</button>
+              </form>
+          </section>
+      </section>

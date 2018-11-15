@@ -1,0 +1,87 @@
+<div class="box-body menu-item-info-box"><!-- Implante -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Implante -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="fClickImplante()">Implante
+        <i  [ngClass] ="(!tomografiaService.isImplante ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isImplante">
+    <div class="row col-sm-12 col-comp-margem" *ngIf='!tomografiaService.isApresentaOdontogramaImplante'>
+      <button type="button" class="btn btn-default search-link btn-xs fa fa-flag-checkered" (click)='Modal()'>
+        Marcar região no odontograma</button>
+    </div>
+    <div class="row col-comp-margem" >
+      <div *ngIf='tomografiaService.isApresentaOdontogramaImplante'>
+        <div class=" col-sm-6 col-comp-margem">
+          <b>Região marcada no odontograma:</b>
+        </div>
+        <div class="col-sm-1 col-comp-margem">
+          <button type="button" class="btn btn-default search-link btn-xs fa fa-eraser"  style="border:0; "
+                (click)='limparOdontograma()'
+                [disabled]= "tomografiaService.implanteOdontograma.length == 0"> limpar marcação(ões) odontograma </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-comp-margem ">
+        <span class="help-block titulo-red" *ngIf="tomografiaService.implanteOdontograma.length == 0">
+          <i class="fa fa-exclamation-circle"></i> Atenção! Marcar região no odontograma. </span>
+          <b *ngIf="tomografiaService.implanteOdontograma.length > 0"><i class="fa fa-flag-checkered"></i> {{tomografiaService.implanteOdontograma}}</b>
+      </div>
+    </div>
+    <div class="row col-xs-12 col-comp-margem" *ngIf="tomografiaService.isApresentaOdontogramaImplante"><!--titulo do serviço-->
+      <mt-odontograma [recebeOdontograma]= "tomografiaService.implanteOdontograma"
+                      (respostaOdontograma)="updateFromChild($event)"></mt-odontograma>
+    </div>
+    <div class="row"><!--Com guia - Sem guia -->
+      <div class="col-xs-6 col-sm-4 alt-linha" >
+        <h4><label>
+          <div class="iradio_flat-red" (click)="checkGuia(0)" [class.checked]="tomografiaService.implante.isComGuia" aria-checked="false" aria-disabled="false"
+              style="position: relative;">
+              <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+          </div>
+          Com guia
+        </label></h4>
+      </div>
+      <div class="col-xs-6 col-sm-7 "><!--Sem guia -->
+        <h4><label>
+          <div class="iradio_flat-red" (click)="checkGuia(1)" [class.checked]="tomografiaService.implante.isSemGuia" aria-checked="false" aria-disabled="false"
+              style="position: relative;">
+              <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+          </div>
+          Sem guia
+        </label></h4>
+      </div>
+    </div>
+    <div class="row col-comp-margem alt-linha-p"><!--Tecido mole-->
+      <div class="col-xs-12 col-sm-12 col-comp-margem alt-linha-p">
+        <h5><label class="container">Tecido mole (uso de afastador)
+          <input type="checkbox" name="TecidoMole" [disabled]="!tomografiaService.implante.isComGuia && !tomografiaService.implante.isSemGuia "
+              [(ngModel)]="tomografiaService.implante.isTecidoMole"
+              (change)='fMsgSnackBar(tomografiaService.implante.isTecidoMole, tomografiaService.implante.idTecidoMole)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row col-comp-margem alt-linha-p"><!--Tomografia do paciente (Dicom)-->
+      <div class="col-xs-12 col-sm-12 col-comp-margem alt-linha-p">
+        <h5><label class="container">Maxila completa
+          <input type="checkbox" name="Maxilac" [disabled]="!tomografiaService.implante.isComGuia && !tomografiaService.implante.isSemGuia "
+              [(ngModel)]="tomografiaService.implante.isMaxilaCompleta"
+              (change)='fMsgSnackBar(tomografiaService.implante.isMaxilaCompleta, tomografiaService.implante.idMaxilaCompleta)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row col-comp-margem alt-linha-p"><!--Tomografia do paciente (Dicom)-->
+      <div class="col-xs-12 col-sm-12 col-comp-margem alt-linha-p">
+        <h5><label class="container">Mandíbula completa
+          <input type="checkbox" name="" [disabled]="!tomografiaService.implante.isComGuia && !tomografiaService.implante.isSemGuia "
+              [(ngModel)]="tomografiaService.implante.isMandibulaCompleta"
+              (change)='fMsgSnackBar(tomografiaService.implante.isMandibulaCompleta, tomografiaService.implante.idMandibulaCompleta)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="box-body menu-item-info-box">
+  <div class="row col-comp-margem alt-linha">
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickModeloGesso()">Modelo de gesso
+        <i  [ngClass] ="(!radiologiaService.isModeloGesso ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!radiologiaService.isModeloGesso">
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Zocalado
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.modeloGesso.isZocalado"  (click)="fZocalado()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Trabalho
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.modeloGesso.isTrabalho"  (click)="fTrabalho()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Escaneamento de modelo
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.modeloGesso.isEscaneamentoModelo"  (click)="fEscaneamentoModelo()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+  </div>
+</div>

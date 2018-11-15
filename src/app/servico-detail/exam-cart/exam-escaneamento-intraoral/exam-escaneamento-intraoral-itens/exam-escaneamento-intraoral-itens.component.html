@@ -1,0 +1,27 @@
+<div class="table-responsive" *ngIf="escaneamentoIntraoralService.fExistEscaneamentointraoral()">
+    <table class="table">
+      <tbody>
+        <tr *ngIf= "escaneamentoIntraoralService.fExisteFormaEntrega()">
+          <dt><b>Formato de entrega:</b></dt>
+          <dd>{{escaneamentoIntraoralService.fRetornaListaFormaEntrega()}}</dd>
+        </tr>
+        <dd class="titulo-red" *ngIf= "!escaneamentoIntraoralService.fExisteFormaEntrega()">Atenção! Favor selecionar formato de entrega...</dd>
+        <tr>
+          <dt><b>{{escaneamentoIntraoralService.escaneamentointraoral.idEscaneamentointraoral}}</b></dt>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isModeloImpresso">
+              {{escaneamentoIntraoralService.escaneamentointraoral.idModeloImpresso}}</dd>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isSemModeloImpresso">
+              {{escaneamentoIntraoralService.escaneamentointraoral.idSemModeloImpresso}}</dd>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isSmartAligner &&
+                      (escaneamentoIntraoralService.escaneamentointraoral.isModeloImpresso || escaneamentoIntraoralService.escaneamentointraoral.isSemModeloImpresso)">
+              *{{escaneamentoIntraoralService.escaneamentointraoral.idSmartAligner}}</dd>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isInvisalign">
+              *{{escaneamentoIntraoralService.escaneamentointraoral.idInvisalign}}</dd>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isOrthoAligner">
+              *{{escaneamentoIntraoralService.escaneamentointraoral.idOrthoAligner}}</dd>
+          <dd *ngIf= "escaneamentoIntraoralService.escaneamentointraoral.isKika">
+              *{{escaneamentoIntraoralService.escaneamentointraoral.idKika}}</dd>
+        </tr>
+      </tbody>
+    </table>
+</div>

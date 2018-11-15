@@ -1,0 +1,19 @@
+<div class="box-body menu-item-info-box">
+  <div class="box-header col-comp-margem">
+    <h3 class="box-title titulo-laranja">Observações da requisição do(s) exames</h3>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-12 col-xs-12">
+        <textarea class="form-control" name="obs"  rows="3"
+          [(ngModel)]="orderPedExameService.orderPedExame.dscObservacoes" name="dscObservações"
+          placeholder="Observação sobre a requisição do exame"></textarea>
+        <div *ngIf="orderPedExameService.orderPedExame.dscObservacoes != ''">
+          <button type="button" class="btn btn-block btn-default search-link btn-xs fa fa-eraser"
+            (click)='fLimpaObs()'>
+            Limpar Observações</button>
+        </div>
+
+      </div>
+  </div>
+</div>

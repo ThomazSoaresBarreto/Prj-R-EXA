@@ -1,0 +1,63 @@
+  <div class="box-body menu-item-info-box">
+    <div class="box-header col-comp-margem">
+      <h3 class="box-title titulo-laranja">FORMATO DE ENTREGA DA {{origemServico}}</h3>
+    </div>
+    <div class="row ">
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowApenasEmail">
+        <h5><label class="container">Apenas e-mail
+          <input type="checkbox" name="apenasEmail"
+            [(ngModel)]="itensFormatoEntrega.isApenasEmail">
+          <span class="checkmark" ></span>
+          </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowCD">
+        <h5><label class="container">CD
+          <input type="checkbox" name="cd"
+            [(ngModel)]="itensFormatoEntrega.isCD">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowSemLaudo">
+        <h5><label class="container">Sem Laudo
+          <input type="checkbox" name="semLaudo"
+            [(ngModel)]="itensFormatoEntrega.isSemLaudo">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowImpresso">
+        <h5><label class="container">Impresso
+          <input type="checkbox" name="impresso"
+            [(ngModel)]="itensFormatoEntrega.isImpresso">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowCortesPdf">
+        <h5><label class="container">Cortes em PDF
+          <input type="checkbox" name="cortesPDF"
+            [(ngModel)]="itensFormatoEntrega.isCortesPdf">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowDicom">
+        <h5><label class="container">Dicom
+          <input type="checkbox" name="dicom"
+            [(ngModel)]="itensFormatoEntrega.isDicom">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowDentalSlice">
+        <h5><label class="container">Dental slice
+          <input type="checkbox" name="dentalSlice"
+            [(ngModel)]="itensFormatoEntrega.isDentalSlice">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha" *ngIf="itensFormatoEntrega.isShowICATVision">
+        <h5><label class="container">i-CAT Vision
+          <input type="checkbox" name="iCATVision"
+            [(ngModel)]="itensFormatoEntrega.isICATVision">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+  </div>

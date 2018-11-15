@@ -1,0 +1,305 @@
+<!-- INÍCIO DO CONTEÚDO -->
+<p> </p>
+<section class="content">
+
+  <div class="row"><!--titulo do serviço-->
+      <div class="col-xs-12">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <i class="fa fa-plus-square"></i>
+            <h3 class="box-title">TOMOGRAFIA COMPUTADORIZADA</h3>
+          </div>
+          <div class="box-body">
+            <div class="col-sm-2 col-xs-12">
+              <span class="place-info-box-icon"><img src="assets/img/servicos/tomografia6.png" /></span>
+            </div>
+            <dl class="col-sm-9 col-xs-12" >
+              <dt>Serviço de Tomografia Computadorizada </dt>
+              <dd>A Tomografia Computadorizada Cone Beam (i-CAT®) fornece uma completa visualização de todas as estruturas ósseas orais e maxilofaciais, permitindo que especialistas tenham uma maior segurança ao realizar o plano de tratamento do paciente.</dd>
+            </dl>
+          </div>
+          <div class="box-footer detail-footer">
+            <a class="pull-left"><b>Lista de Exames do Serviço</b></a>
+            <a [routerLink]="['/servicos']" class="pull-right"><i class="fa fa-reply-all"></i> Retornar menu de serviços</a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row"><!--opçoes do serviço e carrinho-->
+      <div class="col-sm-7 col-xs-12"><!--opçoes do serviço-->
+          <mt-menu-servico></mt-menu-servico> <!--numeração -->
+          <p></p>
+          <div class="box-body menu-item-info-box"><!--Protocolo para cirurgia guiada -->
+            <div class="row col-comp-margem">
+              <button type="button" class="btn btn-link btn-xs titulo-laranja"
+                (click)="clickProtocoloCirurgiaGuiada()">Protocolo para cirurgia guiada
+                <i  [ngClass] ="(isProtocoloCirurgiaGuiada ? 'fa fa-level-up' : 'fa fa-sort-amount-asc')"
+                 aria-hidden="true"></i>
+               </button>
+            </div>
+            <div *ngIf="isProtocoloCirurgiaGuiada">
+              <div class="row col-sm-4 col-checkbox-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Compass 3D</label>
+              </div>
+              <div class="col-sm-7 col-checkbox-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Mandíbula</label>
+              </div>
+              <div class="row col-sm-4 col-checkbox-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Smart Solutions</label>
+              </div>
+              <div class="col-sm-7 col-checkbox-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Maxila</label>
+              </div>
+              <div class="row col-sm-12 d-flex col-comp-margem min-height" >
+                <!-- circulo cirurgia guiada -->
+                <!--<div class="col-sm-1 d-flex flex-column w-100 col-gray col-comp-margem">
+                  <p><br></p>
+                  <p><br></p><p><br></p>
+                  <div class="circle_cir">
+                    <button type="button" class="btn btn-link"></button>
+                  </div>
+                  <p><br><br><br><br><br></p>
+                </div>-->
+                <div class="col-sm-1 d-flex flex-column w-100 col-gray col-comp-margem min-height"><!-- circulo cirurgia guiada -->
+
+                  <div class="circle_cir">
+                    <button type="button" class="btn btn-link"></button>
+                  </div>
+
+                </div>
+
+                <div class="col-sm-11" style="border:solid 1px #000000;" border="1"> <!-- Bordo cirurgia guiada -->
+                    <p></p>
+                    <div class="col-md-5 col-comp-margem">
+                      <dt>Cirurgia guiada parcial</dt>
+                      <dd>Tomografia do paciente (Dicom)</dd>
+                      <dd>Escaneamento Intraoral</dd>
+                      <dd>Planejamento + guia com:</dd>
+                    </div>
+                    <div class="col-md-6 col-comp-margem_right">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label  class="light"  for="">+Laudo e impressão</label>
+                    </div>
+
+                  <div class="row col-md-12 col-comp-margem">
+                    <div class="col-md-2 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">1 Furo</label>
+                    </div>
+                    <div class="col-md-2 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">2 Furo</label>
+                    </div>
+                    <div class="col-md-2 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">3 Furo</label>
+                    </div>
+                    <div class="col-md-2 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">4 Furo</label>
+                    </div>
+                    <div class="col-md-2 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">5 Furo</label>
+                    </div>
+                  </div>
+                  <div class="row col-md-12 col-comp-margem" style="border:solid 1px #000000;" border="1"></div>
+                  <div class="col-md-5 col-comp-margem">
+                    <p></p>
+                    <dt>Cirurgia guiada total</dt>
+                    <dd>Tomografia do paciente (Dicom)</dd>
+                    <dd>Tomografia da prótese (Dicom)</dd>
+                    <dd>Planejamento + guia total com:</dd>
+                  </div>
+                  <div class="col-md-6 col-comp-margem_right">
+                    <p></p>
+                    <input type="checkbox" id="" value=""  name="">
+                    <label  class="light"  for="">+Laudo e impressão</label>
+                  </div>
+
+                  <div class="row col-md-12 col-comp-margem">
+                    <div class="col-md-3 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">5 Furo</label>
+                    </div>
+                    <div class="col-md-3 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">6 Furo</label>
+                    </div>
+                    <div class="col-md-3 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">7 Furo</label>
+                    </div>
+                    <div class="col-md-3 col-comp-margem_font">
+                      <input type="checkbox" id="" value=""  name="">
+                      <label class="col-fotos-intraorais" for="">8 Furo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box-body menu-item-info-box"><!-- Implante -->
+            <div class="titulo-laranja col-md-12 col-comp-margem"><!-- titulo implante -->
+              Implante
+            </div>
+              <div class="row col-md-4 col-comp-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Com guia</label>
+              </div>
+              <div class="col-md-7 col-comp-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Sem guia</label>
+              </div>
+              <div class="row col-md-12 col-comp-margem">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-checkbox-label" for="">Tecido mole (uso de afastador)</label>
+              </div>
+              <div class="row col-md-3 col-comp-margem-checkbox">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-comp-font" for="">Maxila completa</label>
+              </div>
+              <div class="col-md-3 col-comp-margem-checkbox">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-comp-font" for="">Mandíbula completa</label>
+              </div>
+              <div class="col-md-5 col-comp-margem-checkbox">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-comp-font" for="">Marcar região no odontograma</label>
+              </div>
+          </div>
+
+          <div class="box-body menu-item-info-box"><!-- Outras Finalidades -->
+            <div class="titulo-laranja col-md-12 col-comp-margem">
+              Outras finalidades
+            </div>
+            <div class="row col-md-6 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Pesquisa de Fratura e/ou perfuração</label>
+              <div class="row col-md-12 col-comp-margem-checkbox">
+                <input type="checkbox" id="" value=""  name="">
+                <label class="col-comp-font" for="">Marcar região no odontograma</label>
+              </div>
+            </div>
+            <div class="col-md-5 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Dente incluso</label>
+            </div>
+            <div class="row col-md-6 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Patologia (lesão)</label>
+            </div>
+            <div class="col-md-5 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">ATM boca fechada</label>
+            </div>
+            <div class="row col-md-6 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">ATM boca aberta</label>
+            </div>
+            <div class="col-md-5 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">ATM repouso</label>
+            </div>
+          </div>
+
+          <div class="box-body menu-item-info-box"> <!-- Tomografia de face (FOV de 22cm) -->
+            <div class="titulo-laranja col-md-12 col-comp-margem">
+              Tomografia de face (FOV de 22cm)
+            </div>
+            <div class="col-md-5 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Dicom Single file</label>
+            </div>
+            <div class="col-md-5 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Dicom Multi file</label>
+            </div>
+            <div class="col-md-12 col-comp-margem">
+              <input type="checkbox" id="" value=""  name="">
+              <label class="col-checkbox-label" for="">Planejamento Orto-cirúrgico</label>
+            </div>
+          </div>
+
+          <div class="box-body menu-item-info-box"><!-- Cefalometria 3D -->
+            <div class="titulo-laranja col-md-12">
+              Cefalometria 3D
+            </div>
+            <div class="row col-md-12 col-comp-margem">
+              <div class="col-md-1 col-sm-1 col-gray col-comp-margem"><!-- circulo cirurgia guiada -->
+                <p><br></p>
+                <p><br></p>
+                <div class="circle_cir">
+                  <button type="button" class="btn btn-link"></button>
+                </div>
+                <p><br></p><br>
+              </div>
+              <div class="col-md-11" style="border:solid 1px #000000;" border="1" > <!-- Bordo -->
+                <p></p>
+                <div class="row col-md-12 col-comp-margem">
+                  <input type="checkbox" id="" value=""  name="">
+                  <label class="col-checkbox-label" for="">Tomografia de face (Dicom) + Protocolo RITE</label>
+                </div>
+                <div class="row col-md-12 col-comp-margem">
+                  <input type="checkbox" id="" value=""  name="">
+                  <label class="col-checkbox-label" for="">8 fotos</label>
+                </div>
+                <div class="row col-md-12 col-comp-margem">
+                  <input type="checkbox" id="" value=""  name="">
+                  <label class="col-checkbox-label" for="">Escaneamento intraoral</label>
+                </div>
+                <div class="row col-md-12 col-comp-margem">
+                  <input type="checkbox" id="" value=""  name="">
+                  <label class="col-checkbox-label" for="">Modelo 3D impresso</label>
+                </div>
+                <div class="row col-md-12 col-comp-margem">
+                  <input type="checkbox" id="" value=""  name="">
+                  <label class="col-checkbox-label" for="">Periapical completo com bite-wings</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      </div>
+      <div class="col-sm-5 col-xs-12"><!--carrinho de pedido-->
+        <div class="box box-solid">
+          <div class="box-header">
+            <i class="fa fa-shopping-cart"></i>
+            <h3 class="box-title">LISTA DE EXAMES REQUISITADOS</h3>
+          </div>
+          <div class="box-body">
+            <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <dt>Região no Odontograma</dt>
+                      <dd>14-15-18-71-75</dd>
+                    </tr>
+                    <tr>
+                      <dt>Protocolo para cirurgia guiada</dt>
+                      <dd>Compass 3D</dd>
+                      <dd>Cirurgia guiada parcial   +Laudo e impressão</dd>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+          <div class="box-footer">
+            <div class="pull-right">
+              <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+              <a href="order.html" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</section>
+<!-- FIM DO CONTEÚDO -->

@@ -1,0 +1,62 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Implante -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="fClickEscaneamentoIntraoral()">Escaneamento intraoral
+        <i  [ngClass] ="(!escaneamentoIntraoralService.isEscaneamentoIntraoral ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+  <div class="col-comp-margem" [hidden]="!escaneamentoIntraoralService.isEscaneamentoIntraoral">
+    <div class="row alt-linha"><!--Pesquisa de fratura e/ou perfuração-->
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">Com modelo impresso
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isModeloImpresso"
+            (change)="fModeloImpresso()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha">
+        <h5><label class="container">Sem modelo impresso
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isSemModeloImpresso"
+            (change)="fSemModeloImpresso()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row  alt-linha">
+      <div class="col-xs-12 col-sm-3 alt-linha">
+        <h6><label class="container-p">Smart Aligner
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isSmartAligner"
+            (change)="fSmartAligner()">
+          <span class="checkmark-p"></span>
+        </label></h6>
+      </div>
+      <div class="col-xs-12 col-sm-3 alt-linha">
+        <h6><label class="container-p">Invisalign
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isInvisalign"
+            (change)="fInvisalign()">
+          <span class="checkmark-p"></span>
+        </label></h6>
+      </div>
+      <div class="col-xs-12 col-sm-3 alt-linha">
+        <h6><label class="container-p">Ortho Aligner
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isOrthoAligner"
+            (change)="fOrthoAligner()">
+          <span class="checkmark-p"></span>
+        </label></h6>
+      </div>
+      <div class="col-xs-12 col-sm-3 alt-linha">
+        <h6><label class="container-p">Kika
+          <input type="checkbox" name=""
+            [(ngModel)]="escaneamentoIntraoralService.escaneamentointraoral.isKika"
+            (change)="fKika()">
+          <span class="checkmark-p"></span>
+        </label></h6>
+      </div>
+    </div>
+  </div>
+</div>

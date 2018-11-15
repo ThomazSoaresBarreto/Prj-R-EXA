@@ -1,0 +1,97 @@
+<div class="table-responsive" *ngIf="tomografiaService.fExistExamTomo()">
+    <table class="table">
+      <tbody>
+        <tr *ngIf= "tomografiaService.fExisteFormaEntrega()">
+          <dt><b>Formato de entrega:</b></dt>
+          <dd>{{tomografiaService.fRetornaListaFormaEntrega()}}</dd>
+        </tr>
+        <dd class="titulo-red" *ngIf= "!tomografiaService.fExisteFormaEntrega()">*Atenção! Selecionar formato de entrega.</dd>
+        <tr *ngIf= "tomografiaService.fExisteProtCirurGuiada()">
+          <dt><b>{{tomografiaService.protCirurGuiada.idProtCirGuiada}}</b></dt>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isSmartSolution || tomografiaService.protCirurGuiada.isCompass3d">{{tomografiaService.protCirurGuiada.idLaboratorio}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isCompass3d">{{tomografiaService.protCirurGuiada.idCompass3d}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isSmartSolution">{{tomografiaService.protCirurGuiada.idSmartSolution}}</dd>
+          <dd class="titulo-red" *ngIf= "(!tomografiaService.fValidaExameLaboratorio(tomografiaService.protCirurGuiada.isSmartSolution) ||
+                                        !tomografiaService.fValidaExameLaboratorio(tomografiaService.protCirurGuiada.idCompass3d)) &&
+                                        (tomografiaService.protCirurGuiada.isSmartSolution || tomografiaService.protCirurGuiada.isCompass3d)">
+                *Atenção! selecionar procedimento(s).</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isMandibula || tomografiaService.protCirurGuiada.isMaxila">{{tomografiaService.protCirurGuiada.idProcedimento}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isMandibula">{{tomografiaService.protCirurGuiada.idMandibula}}</dd>
+
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isMaxila">{{tomografiaService.protCirurGuiada.idMaxila}}</dd>
+          <dd class="titulo-red" *ngIf= "!tomografiaService.fValidaLaboratorio(tomografiaService.protCirurGuiada.isMaxila) ||
+                                        !tomografiaService.fValidaLaboratorio(tomografiaService.protCirurGuiada.isMandibula) ">
+                *Atenção! Selecionar laboratório.</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial">
+          <dd>{{tomografiaService.protCirurGuiada.idCirurgiaGuiadaParcial}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isLaudoImpressaoCGP"> {{tomografiaService.protCirurGuiada.idLaudoImpressaoCGP}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isTomoDicomCGP">{{tomografiaService.protCirurGuiada.idTomoDicomCGP}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isEscaneamentoIntraoralCGP">{{tomografiaService.protCirurGuiada.idEscaneamentoIntraoralCGP}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isPlanejamentoFuroCGP">{{tomografiaService.protCirurGuiada.idPlanejamentoCGP}}{{tomografiaService.protCirurGuiada.idPlanejamentoFuroCGP}}</dd>
+          <dd class="titulo-red" *ngIf= "!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGP">*Atenção! Selecionar Planejamento + guia com:</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal">
+          <dd>{{tomografiaService.protCirurGuiada.idCirurgiaGuiadaTotal}}:</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isLaudoImpressaoCGT">{{tomografiaService.protCirurGuiada.idLaudoImpressaoCGT}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isTomoDicomCGT">{{tomografiaService.protCirurGuiada.idTomoDicomCGT}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isTomoProteseDicomCGT">{{tomografiaService.protCirurGuiada.idTomoProteseDicomCGT}}</dd>
+          <dd *ngIf= "tomografiaService.protCirurGuiada.isPlanejamentoFuroCGT">{{tomografiaService.protCirurGuiada.idPlanejamentoCGT}}{{tomografiaService.protCirurGuiada.idPlanejamentoFuroCGT}}</dd>
+          <dd class="titulo-red" *ngIf= "!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGT">*Atenção! Selecionar Planejamento + guia total com:</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExisteImplante()">
+          <dt><b>{{tomografiaService.implante.idImplante}}</b></dt>
+          <dd class="titulo-red" *ngIf= "tomografiaService.implanteOdontograma.length == 0">*Atenção! Marcar região no odontograma.</dd>
+          <dd *ngIf= "tomografiaService.implanteOdontograma.length > 0">Região Odontograma: {{tomografiaService.implanteOdontograma}}</dd>
+          <dd *ngIf= "tomografiaService.implante.isComGuia">{{tomografiaService.implante.idComGuia}}</dd>
+          <dd *ngIf= "tomografiaService.implante.isSemGuia">{{tomografiaService.implante.idSemGuia}}</dd>
+          <dd *ngIf= "tomografiaService.implante.isTecidoMole">{{tomografiaService.implante.idTecidoMole}}</dd>
+          <dd *ngIf= "tomografiaService.implante.isMaxilaCompleta">{{tomografiaService.implante.idMaxilaCompleta}}</dd>
+          <dd *ngIf= "tomografiaService.implante.isMandibulaCompleta">{{tomografiaService.implante.idMandibulaCompleta}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExistePeriodontia()">
+          <dt><b>{{tomografiaService.periodontia.idPeriodontia}}</b></dt>
+          <dd class="titulo-red" *ngIf= "tomografiaService.periodontiaOdontograma.length == 0">*Atenção! Marcar região no odontograma.</dd>
+          <dd *ngIf= "tomografiaService.periodontiaOdontograma.length > 0">Região Odontograma: {{tomografiaService.periodontiaOdontograma}}</dd>
+          <dd *ngIf= "tomografiaService.periodontia.isSorrisoGengival">{{tomografiaService.periodontia.idSorrisoGengival}}</dd>
+          <dd *ngIf= "tomografiaService.periodontia.isRecobrimentoRadicular">{{tomografiaService.periodontia.idRecobrimentoRadicular}}</dd>
+          <dd *ngIf= "tomografiaService.periodontia.isOutras">{{tomografiaService.periodontia.idOutras}}{{tomografiaService.periodontia.dscOutras}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExisteOutrasFinalidades()">
+          <dt><b>{{tomografiaService.outrasFinalidades.idOutrasFinalidades}}</b></dt>
+          <dd class="titulo-red" *ngIf= "tomografiaService.outrasFinalidadesOdontograma.length == 0">*Atenção! Marcar região no odontograma.</dd>
+          <dd *ngIf= "tomografiaService.outrasFinalidadesOdontograma.length > 0">Região Odontograma: {{tomografiaService.outrasFinalidadesOdontograma}}</dd>
+          <dd *ngIf= "tomografiaService.outrasFinalidades.isPesqFratPerf">{{tomografiaService.outrasFinalidades.idPesqFratPerf}}</dd>
+          <dd *ngIf= "tomografiaService.outrasFinalidades.isDenteIncluso">{{tomografiaService.outrasFinalidades.idDenteIncluso}}</dd>
+          <dd *ngIf= "tomografiaService.outrasFinalidades.isPatologiaLesao">{{tomografiaService.outrasFinalidades.idPatologiaLesao}}</dd>
+          <dd *ngIf= "tomografiaService.outrasFinalidades.isOutras">{{tomografiaService.outrasFinalidades.idOutras}}{{tomografiaService.outrasFinalidades.dscOutras}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExisteATM()">
+          <dt><b>{{tomografiaService.atm.idAtm}}</b></dt>
+          <dd *ngIf= "tomografiaService.atm.isAtmBocaFechada">{{tomografiaService.atm.idAtmBocaFechada}}</dd>
+          <dd *ngIf= "tomografiaService.atm.isAtmBocaAberta">{{tomografiaService.atm.idAtmBocaAberta}}</dd>
+          <dd *ngIf= "tomografiaService.atm.isAtmRepouso">{{tomografiaService.atm.idAtmRepouso}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExisteTcFace()">
+          <dt><b>{{tomografiaService.tcFace.idTcFace}}</b></dt>
+          <dd *ngIf= "tomografiaService.tcFace.isDicomSingleFile">{{tomografiaService.tcFace.idDicomSingleFile}}</dd>
+          <dd *ngIf= "tomografiaService.tcFace.isDicomMultiFile">{{tomografiaService.tcFace.idDicomMultiFile}}</dd>
+          <dd *ngIf= "tomografiaService.tcFace.isPlanejamentoOrtoCir">{{tomografiaService.tcFace.idPlanejamentoOrtoCir}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExisteDocumentacaoDigital()">
+          <dt><b>{{tomografiaService.documentacaoDigital.idDocumentacaoDigital}}</b></dt>
+          <dd *ngIf= "tomografiaService.documentacaoDigital.isTcFaceProtRITE">{{tomografiaService.documentacaoDigital.idTcFaceProtRITE}}</dd>
+          <dd *ngIf= "tomografiaService.documentacaoDigital.is8Fotos">{{tomografiaService.documentacaoDigital.id8Fotos}}</dd>
+          <dd *ngIf= "tomografiaService.documentacaoDigital.isEscaneamentoIntraoral">{{tomografiaService.documentacaoDigital.idEscaneamentoIntraoral}}</dd>
+          <dd *ngIf= "tomografiaService.documentacaoDigital.isModelo3DImpresso">{{tomografiaService.documentacaoDigital.idModelo3DImpresso}}</dd>
+          <dd *ngIf= "tomografiaService.documentacaoDigital.isPeriapicalCompBiteWings">{{tomografiaService.documentacaoDigital.idPeriapicalCompBiteWings}}</dd>
+        </tr>
+        <tr *ngIf= "tomografiaService.fExistePrototipagem()">
+          <dt><b>{{tomografiaService.prototipagem.idPrototipagem}}</b></dt>
+          <dd *ngIf= "tomografiaService.prototipagem.isBioparts">{{tomografiaService.prototipagem.idBioparts}}</dd>
+          <dd *ngIf= "tomografiaService.prototipagem.isDentalDirect">{{tomografiaService.prototipagem.idDentalDirect}}</dd>
+          <dd *ngIf= "tomografiaService.prototipagem.isCampoPrototipagem">{{tomografiaService.prototipagem.idCampoPrototipagem}}</dd>
+        </tr>
+      </tbody>
+    </table>
+</div>

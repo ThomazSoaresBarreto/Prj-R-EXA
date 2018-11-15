@@ -1,0 +1,36 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Outras finalidades -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickPrototipagem()">Prototipagem
+        <i  [ngClass] ="(!tomografiaService.isPrototipagem ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isPrototipagem">
+      <div class=" row col-comp-margem">
+        <input type="text"
+          [(ngModel)]="tomografiaService.prototipagem.idCampoPrototipagem" name="idOutras" class="form-control" placeholder=""
+          (input)="fAtualizaCampoPrototipagem($event)">
+      </div>
+    <div class="row alt-linha-p"><!--Pesquisa de fratura e/ou perfuração-->
+      <div class="col-xs-5 col-sm-4 alt-linha-p">
+        <h5><label class="container">Bioparts
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.prototipagem.isBioparts"
+              (change)='fMsgSnackBar(tomografiaService.prototipagem.isBioparts, tomografiaService.prototipagem.idBioparts)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-7 col-sm-7  alt-linha-p">
+        <h5><label class="container">Dental Direct
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.prototipagem.isDentalDirect"
+              (change)='fMsgSnackBar(tomografiaService.prototipagem.isDentalDirect, tomografiaService.prototipagem.idDentalDirect)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+
+  </div>
+</div>

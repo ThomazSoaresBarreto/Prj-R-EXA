@@ -1,0 +1,63 @@
+<div class="box-body menu-item-info-box">
+  <div class="row col-comp-margem alt-linha">
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickFotosintraorais()">Fotos intraorais
+        <i  [ngClass] ="(!radiologiaService.isFotosintraorais ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+  <div class="col-comp-margem" [hidden]="!radiologiaService.isFotosintraorais">
+    <div class="row alt-linha-p ">
+      <div class="col-xs-6 col-sm-6 alt-linha-p ">
+        <h5><label class="col-comp-margem">Em oclusão:
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha-p ">
+        <h5><label class="col-comp-margem">Vista oclusal:
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">Frontal
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isFrontal"  (click)="fFrontal()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha-p">
+        <h5><label class="container">Superior
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isSuperior"  (click)="fSuperior()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">Direita
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isDireita"  (click)="fDireita()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6  alt-linha-p">
+        <h5><label class="container">Inferior
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isInferior"  (click)="fInferior()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-6 alt-linha-p">
+        <h5><label class="container">Esquerda
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isEsquerda"  (click)="fEsquerda()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+
+    </div>
+
+  </div>
+</div>

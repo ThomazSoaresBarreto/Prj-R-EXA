@@ -1,0 +1,107 @@
+<!--INICIO DO CONTEUDO-->
+  <section class="content" [@menuItemAppeared]="menuItemState">
+    <div class="row"><!--titulo do serviço-->
+        <div class="col-xs-12 col-sm-12">
+          <div class=" menu-item-info-box box-solid"  >
+            <div class="box-header with-border">
+              <i class="fa fa-plus-square"></i>
+              <h3 class="box-title">REQUISIÇÃO DE EXAME(S)</h3>
+            </div>
+            <div class="box-footer detail-footer">
+              <div class="col-xs-12 col-sm-2 " >
+                <a [routerLink]="['/servicos']"  class="search-link ">
+                <b>MENU SERVIÇOS</b></a>
+              </div>
+              <div class="col-xs-12 col-sm-3 col-comp-margem" >
+                <a [routerLink]="['/servico-detail', 'tomo']"  class="search-link">
+                <span class="place-info-box-icon"><img  src="assets/img/servicos/icon_tomo-p.png" /></span>
+                <b>Tomografia Computadorizada</b></a>
+              </div>
+              <div class="col-xs-12 col-sm-2 col-comp-margem" >
+                <a [routerLink]="['/servico-detail', 'radio']"  class="search-link">
+                <span class="place-info-box-icon"><img  src="assets/img/servicos/icon_doc_rad-p.png" /></span>
+                <b>Radiologia Digital</b></a>
+              </div>
+              <div class="col-xs-12 col-sm-3 col-comp-margem" >
+                <a [routerLink]="['/servico-detail', 'docs']"  class="search-link">
+                <span class="place-info-box-icon"><img  src="assets/img/servicos/icon_doc_ort-p.png" /></span>
+                <b>Documentações Ortodônticas</b></a>
+              </div>
+              <div class="col-xs-12 col-sm-2 col-comp-margem" >
+                <a [routerLink]="['/servico-detail', 'escaneamento']"  class="search-link">
+                <span class="place-info-box-icon"><img  src="assets/img/servicos/icon_escaneamento_intra-p.png" /></span>
+                <b>Escaneamento Intraoral</b></a>
+              </div>
+            </div>
+            <div class="box-footer">
+              <div class="pull-left"  >
+                <select class="form-control input-sm" name="formatoEntrega"
+                        (change)='fSelectformatoEntrega($event.target.value)'>
+                  <option value="" disabled selected hidden>Formato entrega: selecionar um serviço</option>
+                  <option value="tomo">Tomografia Computadorizada</option>
+                  <option value="radio">Radiologia Digital</option>
+                  <option value="docs">Documentações Ortodônticas</option>
+                  <option value="escaneamento">Escaneamento Intraoral</option>
+                </select>
+              </div>
+              <div class="pull-left"  >
+                <button type="button"
+                        [disabled]="servicoSelecionado == ''"
+                        (click)='ModalFormaEntrega()'
+                        class="btn btn-outline-warning mb-1 btn-sm"><i class="fa fa-truck"></i> Formato entrega</button>
+                        <!--class="btn btn-outline-warning mb-1 btn-sm"><i class="fa fa-truck"></i> Formato entrega</button/-->
+              </div>
+              <div class="pull-right"  >
+                <button type="button"
+                        [disabled]="!sharedService.fValidaExisteServicos()"
+                        (click)='Modal()' class="btn btn-info btn-sm"><i class="fa fa-shopping-cart"></i> Consultar Pedido</button>
+                <button type="button"
+                        [disabled]="!sharedService.fValidaExisteServicos()"
+                        (click)='limparPedido()'
+                        class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Limpar Requisição</button>
+                <button type="button"
+                        [disabled]="!sharedService.fRequisicaoValida()"
+                        (click)='fecharPedido()'
+                        class="btn btn-success btn-sm"><i class="fa fa-credit-card"></i> Fechar Pedido</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+
+
+      <div class="row col-comp-margem-block"><!-- ínicio Colunas -->
+        <div class="col-xs-12 col-sm-6 col-comp-margem">  <!-- iínicio Coluna esquerda -->
+          <mt-prot-cirur-guiada></mt-prot-cirur-guiada>
+          <mt-implante></mt-implante>
+          <mt-periodontia></mt-periodontia>
+          <mt-outras-finalidades></mt-outras-finalidades>
+          <mt-atm></mt-atm>
+          <mt-tc-face></mt-tc-face>
+          <mt-documentacaodigital></mt-documentacaodigital>
+          <mt-prototipagem></mt-prototipagem>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-comp-margem-esq"><!-- iínicio Coluna direita -->
+          <mt-documentacoes></mt-documentacoes>
+          <mt-fotos-intraorais></mt-fotos-intraorais>
+          <mt-fotos-extraorais></mt-fotos-extraorais>
+          <mt-radiografia-extraorais></mt-radiografia-extraorais>
+          <mt-modelogesso></mt-modelogesso>
+          <mt-radiografia-intraorais></mt-radiografia-intraorais>
+          <mt-escaneamento-intraoral></mt-escaneamento-intraoral>
+
+
+        </div><!--fim Coluna direita -->
+      </div>
+
+  </section>
+
+<mt-modal-exames-requisitados></mt-modal-exames-requisitados>
+<mt-modal-formatoentrega
+      *ngIf="servicoSelecionado != ''"
+      [origemServico]= "fOrigemServico()"
+      [statusFormatoEntrega]="fStatusFormatoEntrega()"
+      (respostaFormatoEntrega)="updateFromChild($event)"></mt-modal-formatoentrega>

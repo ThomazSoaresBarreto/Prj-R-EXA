@@ -1,0 +1,57 @@
+<div class="box-body menu-item-info-box">
+
+  <div class="row print">
+      <div class="col-sm-12 col-xs-12">
+
+        <div >
+          <button type="button"
+                  (click)="fimprimi()"
+                  class="btn btn-info btn-sm btn-block"><i class="fa fa-print fa-2x"></i> IMPRIMIR REQUISIÇÃO</button>
+        </div>
+
+      </div>
+  </div>
+
+    <div class="col-xs-12">
+      <p>Data da requisição: {{orderPedExameService.orderPedExame.dtPedExame | date:'dd-MM-yyyy' }}</p>
+    </div>
+    <br />
+
+    <div class="col-xs-12">
+      <div>
+        Paciente: {{orderPedExameService.orderPedExame.nomPaciente | titlecase}}
+      </div>
+      <div *ngIf="orderPedExameService.orderPedExame.emailPaciente !=''">
+        e-mail: {{orderPedExameService.orderPedExame.emailPaciente | lowercase }}
+      </div>
+      <div *ngIf="orderPedExameService.orderPedExame.telPaciente !=''">
+        Tel.: {{orderPedExameService.orderPedExame.telPaciente}}
+      </div>
+      <div *ngIf="orderPedExameService.orderPedExame.endPaciente !=''">
+        Endereço: {{orderPedExameService.orderPedExame.endPaciente}} {{orderPedExameService.orderPedExame.numEndPaciente}} {{orderPedExameService.orderPedExame.compEndPaciente}}
+      </div>
+      <br />
+      <div>
+        <mt-exam-lista-completa tipoOrigem= "Impressao"></mt-exam-lista-completa>
+      </div>
+      <div class="pull-right">
+        <div *ngIf="orderPedExameService.orderPedExame.nomDentista !=''">
+          <div>
+            ----------------------------------------------------------------------------------
+          </div>
+          <div class="col-comp-centro">
+            <span class="col-comp-centro">{{orderPedExameService.orderPedExame.nomDentista | titlecase}} {{orderPedExameService.orderPedExame.CRODentista}}</span>
+            <p><span class="col-comp-centro">{{orderPedExameService.orderPedExame.telDentista}} {{orderPedExameService.orderPedExame.emailDentista | lowercase }}</span></p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+</div>

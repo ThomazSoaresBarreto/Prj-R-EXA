@@ -1,0 +1,58 @@
+<div class="table-responsive" *ngIf="docOrtoService.fExistDocOrtodonticas()">
+    <table class="table">
+      <tbody>
+        <tr *ngIf= "docOrtoService.fExisteFormaEntrega()">
+          <dt><b>Formato de entrega:</b></dt>
+          <dd>{{docOrtoService.fRetornaListaFormaEntrega()}}</dd>
+        </tr>
+        <dd class="titulo-red" *ngIf= "!docOrtoService.fExisteFormaEntrega()">Atenção! Favor selecionar formato de entrega...</dd>
+        <tr *ngIf="docOrtoService.fExistDocumentacoes()">
+          <dt><b>{{docOrtoService.documentacoes.idDocumentacoes}}</b></dt>
+          <dd *ngIf= "docOrtoService.documentacoes.isClasseI ||
+                      docOrtoService.documentacoes.isClasseII ||
+                      docOrtoService.documentacoes.isClasseIII">
+              {{docOrtoService.documentacoes.idClassificacaoAngle}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isClasseI">
+              {{docOrtoService.documentacoes.idClasseI}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isClasseII">
+              {{docOrtoService.documentacoes.idClasseII}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isClasseIII">
+              {{docOrtoService.documentacoes.idClasseIII}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isPanoramica">
+              {{docOrtoService.documentacoes.idPanoramica}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isCefalometricaPerfil">
+              {{docOrtoService.documentacoes.idCefalometricaPerfil}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isTracadoAvulso">
+              {{docOrtoService.documentacoes.idTracadoAvulso}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isKit8Fotos">
+              {{docOrtoService.documentacoes.idKit8Fotos}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isEscanIntraOralModImp">
+              {{docOrtoService.documentacoes.idEscanIntraOralModImp}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isEscanIntraOralSemModImp">
+              {{docOrtoService.documentacoes.idEscanIntraOralSemModImp}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isModGessoZocado">
+              {{docOrtoService.documentacoes.idModGessoZocado}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isModGessoTrab">
+              {{docOrtoService.documentacoes.idModGessoTrab}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isPeriapicalIncisivosBiteWing">
+              {{docOrtoService.documentacoes.idPeriapicalIncisivosBiteWing}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isPeriapicalCompletoBiteWing">
+              {{docOrtoService.documentacoes.idPeriapicalCompletoBiteWing}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isSmartAligner">
+              {{docOrtoService.documentacoes.idSmartAligner}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isInvisalign">
+              {{docOrtoService.documentacoes.idInvisalign}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isOrthoAligner">
+              {{docOrtoService.documentacoes.idOrthoAligner}}</dd>
+          <dd *ngIf= "docOrtoService.documentacoes.isKika">
+              {{docOrtoService.documentacoes.idKika}}</dd>
+
+          <dd  *ngIf= "docOrtoService.fExisteTracado()">
+            {{docOrtoService.documentacoes.idTracado}}{{docOrtoService.fRetornaTracado()}}</dd >
+
+
+
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,272 @@
+<section class="content" [@servicoAppeared]="ServicoState">
+
+  <div class="row print"><!--titulo do serviço-->
+      <div class="col-xs-12 col-sm-12">
+        <div class=" menu-item-info-box box-solid"  >
+          <div class="box-header with-border">
+            <i class="fa fa-list-alt"></i>
+            <h3 class="box-title">FORMULÁRIO REQUISIÇÃO DE EXAME(S)</h3>
+          </div>
+          <div class="box-footer detail-footer">
+            <div class="col-xs-12 col-sm-3 ">
+              <span class="place-info-box-icon"><img src="assets/img/logo data x.png" /></span>
+            </div>
+
+            <div class="col-sm-9 col-xs-12 col-comp-margem" >
+              <div class="unidades">
+                UNIDADES DE ATENDIMENTO
+              </div>
+              <div class="linha-unidades" style="border:solid 1px #f2f2f2;"></div>
+              <div >
+                <p></p>
+                <div class="col-sm-4 col-xs-12 " >
+                  <div class='titulo-laranja' >DATA-X BARRA I</div>
+                  <div class='endereco'>Av. das Américas, 500, bloco 13, loja 124</div>
+                  <div class='endereco'>Shopping Downtown</div>
+                </div>
+                <div class="col-sm-4 col-xs-12 " >
+                  <div class='titulo-laranja' >DATA-X BOTAFOGO</div>
+                  <div class='endereco'>Rua Real Grandeza, 108, sala 119</div>
+                  <div class='endereco'>Real Medical Center</div>
+                </div>
+                <div class="col-sm-4 col-xs-12 " >
+                  <div class='titulo-laranja' >DATA-X ICARAÍ</div>
+                  <div class='endereco'>Rua Miguel de Frias, 206, sala 308</div>
+                  <div class='endereco'>Niterói - RJ</div>
+                </div>
+
+              </div>
+
+              <div>
+
+                <div class="col-sm-4 col-xs-12" >
+                  <div class='titulo-laranja' >DATA-X BARRA II</div>
+                  <div class='endereco'>Av. das Américas, 7935, sala 225, bl. A</div>
+                  <div class='endereco'>Edifício Sunplaza - Américas Park</div>
+                </div>
+                <div class="col-sm-4 col-xs-12" >
+                  <div class='titulo-laranja' >DATA-X CENTRO</div>
+                  <div class='endereco'>Av. Rio Branco, 156, sala 2316</div>
+                  <div class='endereco'>Edifício Avenida Central</div>
+                </div>
+                <div class="col-sm-4 col-xs-12" >
+                  <div class='titulo-laranja' >DATA-X TIJUCA</div>
+                  <div class='endereco'>Rua Santo Afonso, 131, sala 201</div>
+                  <div class='endereco'>Tijuca Office</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <div class="pull-left"  >
+              <i class="fa fa-building-o fa-2x build"></i>
+            </div>
+            <div class="pull-left"  >
+              <select class="form-control input-sm" name="formatoEntrega"
+                      [(ngModel)]="orderPedExameService.orderPedExame.unidadeAtendimento"
+                      (change)='fSelectUnidadePreferencial($event.target.value)'>
+                <option *ngIf="orderPedExameService.orderPedExame.unidadeAtendimento ==''"
+                        value="" disabled selected hidden>Unidade preferencial atendimento: selecionar unidade</option>
+                <option value="Sem preferencial"> Sem Unidade preferencial de atendimento</option>
+                <option value="BARRA I">DATA-X BARRA I</option>
+                <option value="BOTAFOGO">DATA-X BOTAFOGO</option>
+                <option value="ICARAÍ">DATA-X ICARAÍ</option>
+                <option value="BARRA II">DATA-X BARRA II</option>
+                <option value="CENTRO">DATA-X CENTRO</option>
+                <option value="TIJUCA">DATA-X TIJUCA</option>
+              </select>
+            </div>
+
+
+            <div class="pull-right"  >
+              <button type="button"
+                  (click)="fRetRequisicao()"
+                  class="btn btn-primary btn-sm"><i class="fa fa-reply-all"></i> Requisição de Exame</button>
+              <button type="button"
+                  [disabled]="!fValidaPedido()"
+                  (click)="printToCart()"
+                  class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Visualizar Requisição</button>
+              <button type="button"
+                  [disabled]="!sharedService.fValidaExisteServicos()"
+                  (click)="fCancelarRequisicao()"
+                  class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Cancelar Requisição</button>
+              <button type="button"
+                  [disabled]="!fValidaPedido()"
+                  (click)="fFinalizePedido(orderPedExam)"
+                  class="btn btn-success btn-sm"><i class="fa fa-shopping-cart"></i> Concluir Pedido</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="row col-comp-margem " ><!--opçoes do serviço e carrinho-->
+      <div class="col-xs-12 col-sm-7 col-comp-margem print"><!--opçoes do serviço-->
+        <div class="box-body menu-item-info-box" >
+          <!--{{orderPedExam.valid}}
+          {{orderPedExam.value | json}}-->
+          <form [formGroup]="orderPedExamform" >
+            <div class="box-body menu-item-info-box">
+              <div class="row invoice-info">
+                <div class="col-xs-12 alt-linha">
+                  <p class="lead">Data Requisição:</p>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 col-xs-12">
+                    <mt-input-container errorMessage="Campo obrigatório" label="Data Requisição">
+                      <input type="date" formControlName="dtPedExame" name="dtPedExame"
+                        (input)="fAtualizaOrderPedExame($event.target.name)">
+                    </mt-input-container>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="box-body menu-item-info-box">
+              <div class="row invoice-info">
+                <div class="col-xs-12 alt-linha">
+                  <p class="lead">Paciente:</p>
+                </div>
+                <div class="col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container errorMessage="Campo obrigatório" label="Nome paciente">
+                      <input class="form-control maiuscula"  formControlName="nomPaciente" name="nomPaciente"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Nome paciente" >
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container errorMessage="Email Inválido" label="E-mail paciente">
+                      <input class="form-control minuscula" formControlName="emailPaciente"  name="emailPaciente"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="E-mail paciente" >
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container errorMessage="Telefone Inválido" label="Telefone paciente">
+                      <input type="text" kzMask="(99) 99999-9999" kzMask2="(99) 9999-9999"
+                        class="form-control" formControlName="telPaciente"  name="telPaciente"
+                            (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Telefone paciente">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Endereço Inválido" label="Endereço paciente">
+                      <input class="form-control" formControlName="endPaciente"  name="endPaciente"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Endereço paciente">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Numero endereço paciente Inválido" label="Numero endereço paciente">
+                      <input  type="text" class="form-control" formControlName="numEndPaciente"  name="numEndPaciente"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Número">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Complemento endereço paciente Inválido" label="Complemento endereço paciente">
+                      <input  type="text" class="form-control" formControlName="compEndPaciente"  name="compEndPaciente"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Complemento">
+                    </mt-input-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-body menu-item-info-box">
+              <div class="row invoice-info">
+                <div class="col-xs-12 alt-linha">
+                  <p class="lead">Dentista:</p>
+                </div>
+                <div class="col-sm-10 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="Nome dentista">
+                      <input  type="text" class="form-control maiuscula" formControlName="nomDentista"  name="nomDentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Nome dentista">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="CRO">
+                      <input  type="text" class="form-control" formControlName="CRODentista"  name="CRODentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="CRO">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="E-mail dentista">
+                      <input  type="text" class="form-control minuscula" formControlName="emailDentista"  name="emailDentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="E-mail dentista">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container errorMessage="Telefone Inválido" label="Telefone dentista">
+                      <input type="text" kzMask="(99) 99999-9999" kzMask2="(99) 9999-9999"
+                        class="form-control" formControlName="telDentista"  name="telDentista"
+                            (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Telefone dentista">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="Endereço dentista">
+                      <input  type="text" class="form-control" formControlName="endDentista"  name="endDentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Endereço dentista">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="Numero endereço dentista">
+                      <input  type="text" class="form-control" formControlName="numEndDentista"  name="numEndDentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Número">
+                    </mt-input-container>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                  <div class="form-group">
+                    <mt-input-container  errorMessage="Campo obrigatório" label="Complemento endereço dentista">
+                      <input  type="text" class="form-control" formControlName="compEndDentista"  name="compEndDentista"
+                        (input)="fAtualizaOrderPedExame($event.target.name)" placeholder="Complemento">
+                    </mt-input-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-5 col-comp-margem-det" ><!--carrinho de pedido-->
+        <div class="col-xs-12 col-sm-12 col-comp-margem"
+            [ngClass]= "{'area-imp': !print, 'area-imp2': print }" >
+              <mt-order-ped-impressao></mt-order-ped-impressao>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-comp-margem print">
+          <mt-observacoes></mt-observacoes>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-comp-margem print" >
+          <mt-exam-lista-completa recebeOrigem= "Order"></mt-exam-lista-completa>
+        </div>
+
+
+      </div>
+  </div>
+
+</section>
+<!-- FIM DO CONTEÚDO -->

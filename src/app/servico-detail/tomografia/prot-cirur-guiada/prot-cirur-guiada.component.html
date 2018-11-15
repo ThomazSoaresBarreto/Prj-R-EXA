@@ -1,0 +1,212 @@
+<div class="box-body menu-item-info-box" ><!--Protocolo para cirurgia guiada -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Protocolo para cirurgia guiada -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickProtocoloCirurgiaGuiada()">Protocolo para cirurgia guiada
+        <i  [ngClass] ="(!tomografiaService.isPrtCirGuiada ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isPrtCirGuiada">
+    <div class="row " ><!--Compass 3D - Mandíbula -->
+      <div class="col-xs-6 col-sm-6 alt-linha" ><!--Compass 3D -->
+        <h5><label>Laboratório:</label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha"><!--Mandibula -->
+        <h5><label>Procedimento:</label></h5>
+      </div>
+    </div>
+    <div class="row " ><!--Compass 3D - Mandíbula -->
+      <div class="col-xs-6 col-sm-6 alt-linha" ><!--Compass 3D -->
+        <h5><label class="container">Compass 3D
+          <input type="checkbox" name="Compass-3D"
+              [(ngModel)]="tomografiaService.protCirurGuiada.isCompass3d"
+              (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isCompass3d, tomografiaService.protCirurGuiada.idCompass3d)'>
+          <span class="checkmark" ></span>
+          <span class="help-block Inf-opcao"
+                *ngIf= "!tomografiaService.fValidaExameLaboratorio(tomografiaService.protCirurGuiada.isCompass3d)">
+              <i class="fa fa-exclamation-circle"></i> selecionar procedimento(s)! </span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha"><!--Mandibula -->
+        <h5><label class="container">Mandíbula
+          <input type="checkbox" name="Mandibula"
+              [(ngModel)]="tomografiaService.protCirurGuiada.isMandibula"
+              (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isMandibula, tomografiaService.protCirurGuiada.idMandibula)'>
+          <span class="checkmark"></span>
+          <span class="help-block Inf-opcao"
+              *ngIf= "!tomografiaService.fValidaLaboratorio(tomografiaService.protCirurGuiada.isMandibula)">
+              <i class="fa fa-exclamation-circle"></i> Selecionar laboratório! </span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row "><!--Smart solution - Maxila  -->
+      <div class="col-xs-6 col-sm-6 alt-linha">
+        <h5><label class="container">Smart Solutions
+          <input type="checkbox" name="Smart-Solutions"
+              [(ngModel)]="tomografiaService.protCirurGuiada.isSmartSolution"
+              (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isSmartSolution, tomografiaService.protCirurGuiada.idSmartSolution)'>
+          <span class="checkmark"></span>
+          <span class="help-block Inf-opcao"
+                *ngIf= "!tomografiaService.fValidaExameLaboratorio(tomografiaService.protCirurGuiada.isSmartSolution)">
+              <i class="fa fa-exclamation-circle"></i> selecionar procedimento(s)! </span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-6 alt-linha">
+        <h5><label class="container">Maxila
+          <input type="checkbox" name="Maxila"
+              [(ngModel)]="tomografiaService.protCirurGuiada.isMaxila"
+              (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isMaxila, tomografiaService.protCirurGuiada.idMaxila)'>
+          <span class="checkmark"></span>
+          <span class="help-block Inf-opcao"
+                *ngIf= "!tomografiaService.fValidaLaboratorio(tomografiaService.protCirurGuiada.isMaxila)">
+              <i class="fa fa-exclamation-circle"></i> Selecionar laboratório! </span>
+        </label></h5>
+      </div>
+    </div>
+    <p></p>
+
+    <div class="row col-comp-margem"><!--linha separação-->
+      <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+    </div>
+
+    <div class="col-comp-margem">
+      <div class="row col-comp-margem"><!--cirurgia guiada parcial-->
+        <div class="col-sm-7 alt-linha-p col-comp-margem" >
+          <h4><label>
+            <div (click)="checkCirurgGuiada(0)"  class="iradio_flat-red" [class.checked]="tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial" aria-checked="false" aria-disabled="false"
+                style="position: relative;">
+                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+            </div>
+            Cirurgia guiada parcial
+          </label></h4>
+        </div>
+        <div class="col-sm-4 col-laud-imp-label alt-linha-p" ><!--Laudo e impressão-->
+          <h6><label class="container-p">+Laudo e impressão
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isLaudoImpressaoCGP"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isLaudoImpressaoCGP, tomografiaService.protCirurGuiada.idLaudoImpressaoCGP)'>
+            <span class="checkmark-p"></span>
+          </label></h6>
+
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Tomografia do paciente (Dicom)-->
+        <div class="col-sm-12 alt-linha-p">
+          <h6><label class="container-p">Tomografia do paciente (Dicom)
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isTomoDicomCGP"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isTomoDicomCGP, tomografiaService.protCirurGuiada.idTomoDicomCGP)'>
+            <span class="checkmark-p"></span>
+          </label></h6>
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Escaneamento Intraoral-->
+        <div class="col-sm-12 ">
+          <h6><label class="container-p">Escaneamento Intraoral
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isEscaneamentoIntraoralCGP"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isEscaneamentoIntraoralCGP, tomografiaService.protCirurGuiada.idEscaneamentoIntraoralCGP)'>
+            <span class="checkmark-p"></span>
+            <span class="help-block Inf-opcao" *ngIf="!tomografiaService.protCirurGuiada.isEscaneamentoIntraoralCGP &&
+                                            tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial">
+              <i class="fa fa-exclamation-circle"></i> Campo obrigatório caso não possua o equipamento no consultório. </span>
+          </label></h6>
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Planejamento + guia com:-->
+        <div class="col-sm-5">
+          <label class="col-combo-label" for="">Planejamento + guia com:</label>
+        </div>
+        <div class="col-sm-6" [class.has-error]="!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGP &&
+                                                  this.tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial">
+          <select class="form-control input-sm" name="Planejamento+guia-comCGP"
+                  [(ngModel)]="tomografiaService.protCirurGuiada.idPlanejamentoFuroCGP"
+                  (change)='fSelectCGP($event.target.value)'
+                  [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial">
+            <option *ngIf='!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGP'
+                    value="" disabled selected hidden>Selecionar uma opção</option>
+            <option>1 Furo</option>
+            <option>2 Furo</option>
+            <option>3 Furo</option>
+            <option>4 Furo</option>
+            <option>5 Furo</option>
+          </select>
+          <span class="help-block Inf-opcao" *ngIf="!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGP &&
+                                          this.tomografiaService.protCirurGuiada.isCirurgiaGuiadaParcial">
+                                        <i class="fa fa-remove"></i>Atenção campo obrigatório</span>
+        </div>
+      </div>
+      <p></p>
+    </div>
+
+    <div class="row col-comp-margem"><!--linha separação  -->
+      <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+    </div>
+
+    <div class="col-comp-margem">
+      <div class="row col-comp-margem"><!--cirurgia guiada total-->
+        <div class="col-sm-7 col-comp-margem alt-linha-p" >
+          <h4><label>
+            <div (click)="checkCirurgGuiada(1)" class="iradio_flat-red" [class.checked]="tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal" aria-checked="false" aria-disabled="false"
+                style="position: relative;">
+                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+            </div>
+            Cirurgia guiada total
+          </label></h4>
+        </div>
+        <div class="col-sm-4 col-laud-imp-label alt-linha-p" ><!--Laudo e impressão-->
+          <h6><label class="container-p">+Laudo e impressão
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isLaudoImpressaoCGT"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isLaudoImpressaoCGT, tomografiaService.protCirurGuiada.idLaudoImpressaoCGT)'>
+            <span class="checkmark-p"></span>
+          </label></h6>
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Tomografia do paciente (Dicom)-->
+        <div class="col-sm-12 alt-linha-p">
+          <h6><label class="container-p">Tomografia do paciente (Dicom)
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isTomoDicomCGT"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isTomoDicomCGT, tomografiaService.protCirurGuiada.idTomoDicomCGT)'>
+            <span class="checkmark-p"></span>
+          </label></h6>
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Tomografia da prótese (Dicom)-->
+        <div class="col-sm-12 alt-linha">
+          <h6><label class="container-p">Tomografia da prótese (Dicom)
+            <input type="checkbox" name="" [disabled]="!tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal"
+                [(ngModel)]="tomografiaService.protCirurGuiada.isTomoProteseDicomCGT"
+                (change)='fMsgSnackBar(tomografiaService.protCirurGuiada.isTomoProteseDicomCGT, tomografiaService.protCirurGuiada.idTomoProteseDicomCGT)'>
+            <span class="checkmark-p"></span>
+          </label></h6>
+        </div>
+      </div>
+      <div class="row col-comp-margem"><!--Planejamento + guia total com:-->
+        <div class="col-sm-5">
+          <label class="col-combo-label" for="">Planejamento + guia total com:</label>
+        </div>
+        <div class="col-sm-6" [class.has-error]="!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGT &&
+                                                  this.tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal">
+          <select class="form-control input-sm" name="Planejamento+guia-comCGT"
+                  [(ngModel)]="tomografiaService.protCirurGuiada.idPlanejamentoFuroCGT"
+                  (change)='fSelectCGT($event.target.value)'
+                  [disabled]="!this.tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal">
+
+            <option *ngIf='!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGT'
+                    value="" disabled selected hidden>Selecionar uma opção</option>
+            <option>5 Furo</option>
+            <option>6 Furo</option>
+            <option>7 Furo</option>
+            <option>8 Furo</option>
+          </select>
+          <span class="help-block Inf-opcao" *ngIf="!tomografiaService.protCirurGuiada.isPlanejamentoFuroCGT &&
+                                          this.tomografiaService.protCirurGuiada.isCirurgiaGuiadaTotal">
+                                        <i class="fa fa-remove"></i>Atenção campo obrigatório</span>
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+</div>

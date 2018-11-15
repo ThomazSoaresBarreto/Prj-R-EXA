@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="modal fade" id="ModalFormaEntrega" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="box box-solid" >
+          <mt-formato-entrega [origemServico]= "origemServico"
+                              [statusFormatoEntrega]="statusFormatoEntrega"></mt-formato-entrega>
+          <div class="box-footer ">
+            <a  class="search-link pull-right btn btn-default btn-sm btn-block"
+            (click)='fConfirmaFormaEntrega()'><b><i class="fa fa-reply-all" data-dismiss="modal">Retornar</i></b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

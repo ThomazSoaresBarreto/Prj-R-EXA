@@ -1,0 +1,87 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Outras finalidades -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickOutrasFinalidades()">Outras finalidades
+        <i  [ngClass] ="(!tomografiaService.isOutrasFinalidadesMenu ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isOutrasFinalidadesMenu">
+
+    <div class="row col-sm-12 col-comp-margem" *ngIf='!tomografiaService.isApresentaOdontogramaOutrasFinalidades'>
+      <button type="button" class="btn btn-default search-link btn-xs fa fa-flag-checkered" (click)='Modal()'>
+        Marcar região no odontograma</button>
+    </div>
+    <div class="row col-comp-margem" >
+      <div *ngIf='tomografiaService.isApresentaOdontogramaOutrasFinalidades'>
+        <div class=" col-sm-6 col-comp-margem">
+          <b>Região marcada no odontograma:</b>
+        </div>
+        <div class="col-sm-1 col-comp-margem">
+          <button type="button" class="btn btn-default search-link btn-xs fa fa-eraser"  style="border:0; "
+                (click)='limparOdontograma()'
+                [disabled]= "tomografiaService.outrasFinalidadesOdontograma.length == 0"> limpar marcação(ões) odontograma </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-comp-margem ">
+        <span class="help-block titulo-red" *ngIf="tomografiaService.outrasFinalidadesOdontograma.length == 0">
+          <i class="fa fa-exclamation-circle"></i> Atenção! Marcar região no odontograma. </span>
+          <b *ngIf="tomografiaService.outrasFinalidadesOdontograma.length > 0"><i class="fa fa-flag-checkered"></i> {{tomografiaService.outrasFinalidadesOdontograma}}</b>
+      </div>
+    </div>
+
+
+    <div class="row col-xs-12 col-sm-12 col-comp-margem" *ngIf="tomografiaService.isApresentaOdontogramaOutrasFinalidades"><!--titulo do serviço-->
+            <mt-odontograma [recebeOdontograma]= "tomografiaService.outrasFinalidadesOdontograma"
+                            (respostaOdontograma)="updateFromChild($event)"></mt-odontograma>
+    </div>
+
+    <div class="row col-comp-margem alt-linha"><!--Pesquisa de fratura e/ou perfuração-->
+      <div class="col-xs-12 col-sm-12 col-comp-margem alt-linha">
+        <h5><label class="container">Pesquisa de fratura e/ou perfuração
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.outrasFinalidades.isPesqFratPerf"
+              (change)='fMsgSnackBar(tomografiaService.outrasFinalidades.isPesqFratPerf, tomografiaService.outrasFinalidades.idPesqFratPerf)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha col-comp-margem"><!--Dente incluso-->
+      <div class="col-xs-12 col-sm-12 alt-linha col-comp-margem">
+        <h5><label class="container">Dente incluso
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.outrasFinalidades.isDenteIncluso"
+              (change)='fMsgSnackBar(tomografiaService.outrasFinalidades.isDenteIncluso, tomografiaService.outrasFinalidades.idDenteIncluso)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha col-comp-margem"><!--Patologia (lesão)-->
+      <div class="col-xs-12 col-sm-12 alt-linha col-comp-margem">
+        <h5><label class="container">Patologia (lesão)
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.outrasFinalidades.isPatologiaLesao"
+              (change)='fMsgSnackBar(tomografiaService.outrasFinalidades.isPatologiaLesao, tomografiaService.outrasFinalidades.idPatologiaLesao)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha col-comp-margem"><!--Outras-->
+      <div class=" col-xs-12 col-sm-2 alt-linha col-comp-margem">
+          <h6><label class="container">Outras
+            <input type="checkbox" name=""
+                [(ngModel)]="tomografiaService.isOutrasFinalidades" (click)="fOutras()">
+            <span class="checkmark"></span>
+          </label></h6>
+      </div>
+      <div class=" col-xs-12 col-sm-9 alt-linha col-comp-margem" *ngIf="tomografiaService.isOutrasFinalidades">
+        <input type="text" [myFocus]="tomografiaService.isOutrasFinalidades"
+          [(ngModel)]="tomografiaService.outrasFinalidades.dscOutras" name="idOutras" class="form-control" placeholder="Outras"
+          (input)="fAtualizaOutras($event)">
+        <span class="help-block Inf-opcao" *ngIf="tomografiaService.outrasFinalidades.isOutras &&
+                                        (tomografiaService.outrasFinalidades.dscOutras =='')">
+          <i class="fa fa-exclamation-circle"></i> Atenção> Entre com outras. </span>
+      </div>
+    </div>
+  </div>
+</div>

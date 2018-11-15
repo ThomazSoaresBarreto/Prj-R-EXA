@@ -1,0 +1,57 @@
+
+
+<div class="box box-solid">
+  <div class="box-header" *ngIf= "tipoOrigem !='Impressao'">
+    <h3 *ngIf= "tipoOrigem !='Impressao'" class="box-title titulo-laranja">LISTA COMPLETA DE EXAMES REQUISITADOS</h3>
+    <h3 *ngIf= "tipoOrigem =='Impressao'" class="box-title "><b>Lista de exames requisitados</b></h3>
+  </div>
+
+  <div  *ngIf= "tipoOrigem =='Impressao'">
+    <b>Lista de exames requisitados</b>
+  </div>
+  <div class="box-body menu-item-info-box" >
+    <div *ngIf='!radiologiaService.fExistRadiologia() &&
+                !docOrtoService.fExistDocOrtodonticas() &&
+                !escaneamentoIntraoralService.fExistEscaneamentointraoral() &&
+                !tomografiaService.fExistExamTomo()'><!-- /Seu carrinho está vazio -->
+      <p class="text-center">
+        Seu carrinho está vazio!
+      </p>
+    </div>
+    <div *ngIf='tomografiaService.fExistExamTomo()'>
+      <span *ngIf= "tipoOrigem !='Impressao'" class="place-info-box-icon"><img  src="assets/img/servicos/icon_tomo-p.png" /></span>
+      <b> Tomografia Computadorizada</b>
+      <mt-exam-tc-itens></mt-exam-tc-itens>
+    </div>
+    <div *ngIf='radiologiaService.fExistRadiologia()'>
+      <span *ngIf= "tipoOrigem !='Impressao'" class="place-info-box-icon"><img  src="assets/img/servicos/icon_doc_rad-p.png" /></span>
+      <b> Radiologia Digital</b>
+      <mt-exam-radiologia-itens></mt-exam-radiologia-itens>
+    </div>
+    <div *ngIf='docOrtoService.fExistDocOrtodonticas()'>
+      <span *ngIf= "tipoOrigem !='Impressao'"  class="place-info-box-icon"><img  src="assets/img/servicos/icon_doc_ort-p.png" /></span>
+      <b> Documentações Ortodônticas</b>
+      <mt-exam-documentacoes-itens></mt-exam-documentacoes-itens>
+    </div>
+    <div *ngIf='escaneamentoIntraoralService.fExistEscaneamentointraoral()'>
+      <span *ngIf= "tipoOrigem !='Impressao'"  class="place-info-box-icon"><img  src="assets/img/servicos/icon_escaneamento_intra-p.png" /></span>
+      <b> Escaneamento Intraoral</b>
+      <mt-exam-escaneamento-intraoral-itens></mt-exam-escaneamento-intraoral-itens>
+    </div>
+
+  </div>
+  <div  *ngIf="orderPedExameService.orderPedExame.dscObservacoes != ''">
+    <span class="col-comp-margem" *ngIf="tipoOrigem !='Impressao'" ><b><i  class="fa fa-file-text"></i> Observações do pedido de exame:</b></span>
+    <span *ngIf="tipoOrigem =='Impressao'" ><b> Observações do pedido de exame:</b></span>
+    <div *ngIf="tipoOrigem !='Impressao'" class="col-comp-margem" ><p>{{orderPedExameService.orderPedExame.dscObservacoes}}</p></div>
+    <div *ngIf="tipoOrigem =='Impressao'" ><p>{{orderPedExameService.orderPedExame.dscObservacoes}}</p></div>
+  </div>
+
+  <div class="box-footer" >
+    <div class="pull-right" *ngIf="recebeOrigem == 'Consulta'" >
+      <button type="button" [disabled]="!sharedService.fValidaExisteServicos()"
+              (click)='limparPedido()'
+              class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Limpar Lista</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Outras finalidades -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickTcFace()">Tomografia de face - FOV 22cm
+        <i  [ngClass] ="(!tomografiaService.isTcFace ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isTcFace">
+    <div class="row alt-linha-p">
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Dicom Single file
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.tcFace.isDicomSingleFile"
+              (change)='fMsgSnackBar(tomografiaService.tcFace.isDicomSingleFile, tomografiaService.tcFace.idDicomSingleFile)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Dicom Multi file
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.tcFace.isDicomMultiFile"
+              (change)='fMsgSnackBar(tomografiaService.tcFace.isDicomMultiFile, tomografiaService.tcFace.idDicomMultiFile)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Planejamento Orto-cirúrgico
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.tcFace.isPlanejamentoOrtoCir"
+              (change)='fMsgSnackBar(tomografiaService.tcFace.isPlanejamentoOrtoCir, tomografiaService.tcFace.idPlanejamentoOrtoCir)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+  </div>
+</div>

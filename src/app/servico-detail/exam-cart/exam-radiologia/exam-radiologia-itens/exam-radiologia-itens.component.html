@@ -1,0 +1,130 @@
+<div class="table-responsive" *ngIf="radiologiaService.fExistRadiologia()">
+    <table class="table">
+      <tbody>
+        <tr *ngIf= "radiologiaService.fExisteFormaEntrega()">
+          <dt><b>Formato de entrega:</b></dt>
+          <dd>{{radiologiaService.fRetornaListaFormaEntrega()}}</dd>
+        </tr>
+        <dd class="titulo-red" *ngIf= "!radiologiaService.fExisteFormaEntrega()">Atenção! Favor selecionar formato de entrega...</dd>
+
+
+        <tr *ngIf="radiologiaService.fExistFotosIntraorais()">
+          <dt><b>{{radiologiaService.fotosIntraorais.idFotosIntraorais}}</b></dt>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isFrontal ||
+                      radiologiaService.fotosIntraorais.isDireita ||
+                      radiologiaService.fotosIntraorais.isEsquerda">
+              {{radiologiaService.fotosIntraorais.idEmOclusao}}</dd>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isFrontal">
+              *{{radiologiaService.fotosIntraorais.idFrontal}}</dd>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isDireita">
+              *{{radiologiaService.fotosIntraorais.idDireita}}</dd>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isEsquerda">
+              *{{radiologiaService.fotosIntraorais.idEsquerda}}</dd>
+
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isSuperior ||
+                      radiologiaService.fotosIntraorais.isInferior">
+              {{radiologiaService.fotosIntraorais.idVistaOclusal}}</dd>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isSuperior">
+              *{{radiologiaService.fotosIntraorais.idSuperior}}</dd>
+          <dd *ngIf= "radiologiaService.fotosIntraorais.isInferior">
+              *{{radiologiaService.fotosIntraorais.idInferior}}</dd>
+        </tr>
+        <tr *ngIf="radiologiaService.fExistFotosExtraorais()">
+          <dt><b>{{radiologiaService.fotosExtraorais.idFotosExtraorais}}</b></dt>
+          <dd *ngIf= "radiologiaService.fotosExtraorais.isFrontal">
+              {{radiologiaService.fotosExtraorais.idFrontal}}</dd>
+          <dd *ngIf= "radiologiaService.fotosExtraorais.isFrontalSorrindo">
+              {{radiologiaService.fotosExtraorais.idFrontalSorrindo}}</dd>
+          <dd *ngIf= "radiologiaService.fotosExtraorais.isPerfilDireito">
+              {{radiologiaService.fotosExtraorais.idPerfilDireito}}</dd>
+        </tr>
+        <tr *ngIf="radiologiaService.fExistRadiografiaExtraorais()">
+          <dt><b>{{radiologiaService.radiografiaExtraorais.idRadiografiaExtraorais}}</b></dt>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isPanoramica">
+              {{radiologiaService.radiografiaExtraorais.idPanoramica}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isCefalometricaPerfil">
+              {{radiologiaService.radiografiaExtraorais.idCefalometricaPerfil}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isPA">
+              {{radiologiaService.radiografiaExtraorais.idPA}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isMaoPunho">
+              {{radiologiaService.radiografiaExtraorais.idMaoPunho}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isTracado">
+              {{radiologiaService.radiografiaExtraorais.idTracado}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isTipEdge">
+              *{{radiologiaService.radiografiaExtraorais.idTipEdge}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isTweed">
+              *{{radiologiaService.radiografiaExtraorais.idTweed}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isDelmanto">
+              *{{radiologiaService.radiografiaExtraorais.idDelmanto}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isPetrovic">
+              *{{radiologiaService.radiografiaExtraorais.idPetrovic}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isErupcao3Molar">
+              *{{radiologiaService.radiografiaExtraorais.idErupcao3Molar}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isRicketts">
+              *{{radiologiaService.radiografiaExtraorais.idRicketts}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isBimler">
+              *{{radiologiaService.radiografiaExtraorais.idBimler}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isJarabak">
+              *{{radiologiaService.radiografiaExtraorais.idJarabak}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isIBEO">
+              *{{radiologiaService.radiografiaExtraorais.idIBEO}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isDowns">
+              *{{radiologiaService.radiografiaExtraorais.idDowns}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isUspUnicamp">
+              *{{radiologiaService.radiografiaExtraorais.idUspUnicamp}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isRickettsFrontal">
+              *{{radiologiaService.radiografiaExtraorais.idRickettsFrontal}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isAdenoides">
+              *{{radiologiaService.radiografiaExtraorais.idAdenoides}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isSchwarz">
+              *{{radiologiaService.radiografiaExtraorais.idSchwarz}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isPadraoProfis">
+              *{{radiologiaService.radiografiaExtraorais.idPadraoProfis}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isMacNamara">
+              *{{radiologiaService.radiografiaExtraorais.idMacNamara}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isSteiner">
+              *{{radiologiaService.radiografiaExtraorais.idSteiner}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isVJMJ">
+              *{{radiologiaService.radiografiaExtraorais.idVJMJ}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaExtraorais.isUSP">
+              *{{radiologiaService.radiografiaExtraorais.idUSP}}</dd>
+        </tr>
+        <tr *ngIf="radiologiaService.fExistModeloGesso()">
+          <dt><b>{{radiologiaService.modeloGesso.idModeloGesso}}</b></dt>
+          <dd *ngIf= "radiologiaService.modeloGesso.isZocalado">
+              {{radiologiaService.modeloGesso.idZocalado}}</dd>
+          <dd *ngIf= "radiologiaService.modeloGesso.isTrabalho">
+              {{radiologiaService.modeloGesso.idTrabalho}}</dd>
+          <dd *ngIf= "radiologiaService.modeloGesso.isEscaneamentoModelo">
+              {{radiologiaService.modeloGesso.idEscaneamentoModelo}}</dd>
+        </tr>
+        <tr *ngIf="radiologiaService.fExistRadiografiaIntraorais()">
+          <dt><b>{{radiologiaService.radiografiaIntraorais.idRadiografiaIntraorais}}</b></dt>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isCompleto ||
+                      radiologiaService.radiografiaIntraorais.isOdontograma ||
+                      radiologiaService.radiografiaIntraorais.isOclusal">
+              {{radiologiaService.radiografiaIntraorais.idPeriapical}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isCompleto">
+              *{{radiologiaService.radiografiaIntraorais.idCompleto}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isOdontograma">
+              *{{radiologiaService.radiografiaIntraorais.idOdontograma}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isOclusal">
+              *{{radiologiaService.radiografiaIntraorais.idOclusal}}</dd>
+
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isDireito ||
+                      radiologiaService.radiografiaIntraorais.isPreMolares ||
+                      radiologiaService.radiografiaIntraorais.isEsquerdo ||
+                      radiologiaService.radiografiaIntraorais.isMolares">
+              {{radiologiaService.radiografiaIntraorais.idBiteWings}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isDireito">
+              *{{radiologiaService.radiografiaIntraorais.idDireito}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isPreMolares">
+              *{{radiologiaService.radiografiaIntraorais.idPreMolares}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isEsquerdo">
+              *{{radiologiaService.radiografiaIntraorais.idEsquerdo}}</dd>
+          <dd *ngIf= "radiologiaService.radiografiaIntraorais.isMolares">
+              *{{radiologiaService.radiografiaIntraorais.idMolares}}</dd>
+        </tr>
+      </tbody>
+    </table>
+</div>

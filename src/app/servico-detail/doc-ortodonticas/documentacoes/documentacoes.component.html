@@ -1,0 +1,336 @@
+<div class="box-body menu-item-info-box" ><!-- -->
+  <div class="row col-comp-margem alt-linha" >
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="fClickDocumentacoes()">Documentações (marcar traçado)
+        <i  [ngClass] ="(!docOrtoService.isDocOrtodontica ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+  <div [hidden]="!docOrtoService.isDocOrtodontica">
+    <div class="row col-comp-margem"  >
+      <b>Classificação Angle:</b>
+    </div>
+    <div class="col-comp-margem" >
+      <div class="row " >
+        <div class="col-xs-3 col-sm-3 alt-linha" >
+          <h5><label class="container">Classe I
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isClasseI"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isClasseI, docOrtoService.documentacoes.idClasseI)'>
+            <span class="checkmark" ></span>
+          </label></h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 alt-linha">
+          <h5><label class="container">Classe II
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isClasseII"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isClasseII, docOrtoService.documentacoes.idClasseII)'>
+            <span class="checkmark"></span>
+          </label></h5>
+        </div>
+        <div class="col-xs-3 col-sm-3 alt-linha">
+          <h5><label class="container">Classe III
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isClasseIII"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isClasseIII, docOrtoService.documentacoes.idClasseIII)'>
+            <span class="checkmark"></span>
+          </label></h5>
+        </div>
+      </div>
+      <p></p>
+
+      <div class="row col-comp-margem"><!--linha separação-->
+        <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+      </div>
+
+      <div class="row col-comp-margem " >
+          <div class="col-xs-6 col-sm-6" >
+            <h5><label class="container">Panorâmica
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isPanoramica"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isPanoramica, docOrtoService.documentacoes.idPanoramica)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Cefalométrica de perfil
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isCefalometricaPerfil"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isCefalometricaPerfil, docOrtoService.documentacoes.idCefalometricaPerfil)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Traçado avulso
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isTracadoAvulso"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isTracadoAvulso, docOrtoService.documentacoes.idTracadoAvulso)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Kit de 8 fotos
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isKit8Fotos"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isKit8Fotos, docOrtoService.documentacoes.idKit8Fotos)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Escaneamento intraoral com modelo impresso
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isEscanIntraOralModImp"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isEscanIntraOralModImp, docOrtoService.documentacoes.idEscanIntraOralModImp)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Escaneamento intraoral sem modelo impresso
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isEscanIntraOralSemModImp"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isEscanIntraOralSemModImp, docOrtoService.documentacoes.idEscanIntraOralSemModImp)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Modelo de gesso zocalado
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isModGessoZocado"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isModGessoZocado, docOrtoService.documentacoes.idModGessoZocado)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Modelo de gesso de trabalho
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isModGessoTrab"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isModGessoTrab, docOrtoService.documentacoes.idModGessoTrab)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Periapical de incisivos + bite-wing
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isPeriapicalIncisivosBiteWing"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isPeriapicalIncisivosBiteWing, docOrtoService.documentacoes.idPeriapicalIncisivosBiteWing)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <h5><label class="container">Periapical completo com bite-wing
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isPeriapicalCompletoBiteWing"
+                  (change)='fMsgSnackBar(docOrtoService.documentacoes.isPeriapicalCompletoBiteWing, docOrtoService.documentacoes.idPeriapicalCompletoBiteWing)'>
+              <span class="checkmark" ></span>
+            </label></h5>
+          </div>
+        </div>
+
+      <div class="row col-comp-margem"><!--linha separação  -->
+        <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+      </div>
+
+      <div class="row col-comp-margem" >
+        <div class="col-xs-6 col-sm-3 ">
+          <h6><label class="container">Smart Aligner
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isSmartAligner"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isSmartAligner, docOrtoService.documentacoes.idSmartAligner)'>
+            <span class="checkmark"></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 ">
+          <h6><label class="container">Invisalign
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isInvisalign"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isInvisalign, docOrtoService.documentacoes.idInvisalign)'>
+            <span class="checkmark"></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 ">
+          <h6><label class="container">Ortho Aligner
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isOrthoAligner"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isOrthoAligner, docOrtoService.documentacoes.idOrthoAligner)'>
+            <span class="checkmark"></span>
+          </label></h6>
+        </div>
+        <div class="col-xs-6 col-sm-3 ">
+          <h6><label class="container">Kika
+            <input type="checkbox" name=""
+                [(ngModel)]="docOrtoService.documentacoes.isKika"
+                (change)='fMsgSnackBar(docOrtoService.documentacoes.isKika, docOrtoService.documentacoes.idKika)'>
+            <span class="checkmark"></span>
+          </label></h6>
+        </div>
+      </div>
+
+
+
+      <div class="row col-comp-margem"><!--linha separação  -->
+        <div class="col-sm-12" style="border:solid 1px #000000;" border="1"></div>
+      </div>
+      <p></p>
+      <div class="row col-comp-margem" >
+        <button type="button" class="btn btn-primary  btn-xs btn-block fa fa-sliders"
+                (click)="fHabTracado()">
+          Seleção de Traçado(s):</button>
+      </div>
+      <div *ngIf="docOrtoService.isHabTracado" [@menuItemAppeared]="menuItemState">
+        <div class="row " >
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Tip Edge
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isTipEdge">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Tweed
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isTweed">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Delmanto
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isDelmanto">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Petrovic
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isPetrovic">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+
+        </div>
+        <div class="row " >
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Erupção de 3º molar
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isErupcao3Molar">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Ricketts
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isRicketts">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Bimler
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isBimler">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Jarabak
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isJarabak">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+
+        </div>
+        <div class="row " >
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">I.B.E.O.
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isIBEO">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Downs
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isDowns">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">USP/Unicamp
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isUspUnicamp">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Ricketts frontal
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isRickettsFrontal">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+
+        </div>
+        <div class="row " >
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Adenóides
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isAdenoides">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Schwarz
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isSchwarz">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Padrão Profis
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isPadraoProfis">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">MacNamara
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isMacNamara">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+
+        </div>
+        <div class="row " >
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">Steiner
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isSteiner">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">VJMJ
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isVJMJ">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+          <div class="col-xs-6 col-sm-3 alt-linha" >
+            <h6><label class="container-p">USP
+              <input type="checkbox" name=""
+                  [(ngModel)]="docOrtoService.documentacoes.isUSP">
+              <span class="checkmark-p" ></span>
+            </label></h6>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

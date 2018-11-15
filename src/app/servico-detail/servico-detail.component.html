@@ -1,0 +1,59 @@
+<!-- INÍCIO DO CONTEÚDO -->
+<section class="content" [@menuItemAppeared]="menuItemState" >
+
+  <div class="row"><!--titulo do serviço-->
+      <div class="col-xs-12 col-sm-12">
+        <div class=" menu-item-info-box box-solid" *ngIf="servico" >
+          <div class="box-header with-border">
+            <i class="fa fa-plus-square"></i>
+            <h3 class="box-title">{{servico?.name}}</h3>
+          </div>
+          <span class="place-info-box-icon"><img  [src]="servico?.imagePathp" /></span>
+          <div class="box-body">
+            <div class="place-info-box-content">
+              <span class="place-info-box-text">{{servico?.category}}</span>
+              <span class="place-info-box-star"><i class="fa fa-heartbeat"></i></span>
+              <span class="place-info-box-detail">{{servico?.descricao}}</span>
+            </div>
+          </div>
+          <div class="box-footer">
+            <div class="pull-left"  >
+              <a class="btn btn-warning btn-sm" [routerLink]="['/servicos']" role="button"><b><i class="fa fa-reply-all"></i> Menu de serviços</b></a>
+              <a class="btn btn-primary btn-sm" [routerLink]="['/requisicao-exame']" role="button"><b><i class="fa fa-plus-square"></i> Requisição de exames</b></a>
+            </div>
+            <div class="pull-right"  >
+              <button type="button"
+                      [disabled]="!sharedService.fRequisicaoValida()"
+                      (click)='fecharPedido()'
+                      class="btn btn-success btn-sm"><i class="fa fa-credit-card"></i> Fechar Pedido</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row col-comp-margem" ><!--opçoes do serviço e carrinho-->
+    <div class="col-xs-12 col-sm-12 col-comp-margem"><!--opçoes do serviço-->
+      <div class="col-xs-12 col-sm-7 col-comp-margem"><!--opçoes do serviço-->
+        <div class="col-comp-margem">
+          <mt-tomografia *ngIf="servico?.id == 'tomo'"></mt-tomografia>
+          <mt-radiologia *ngIf="servico?.id == 'radio'"></mt-radiologia>
+          <mt-doc-ortodonticas *ngIf="servico?.id == 'docs'"></mt-doc-ortodonticas>
+          <mt-escaneamento-intraoral *ngIf="servico?.id == 'escaneamento'" ></mt-escaneamento-intraoral>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5 col-comp-margem-det" *ngIf="servico?.id">
+        <div class="col-xs-12 col-sm-12 col-comp-margem" *ngIf="servico?.id">
+          <mt-formato-entrega [origemServico]= "servico.name"
+                              [statusFormatoEntrega]="fStatusFormatoEntrega(servico.id)"
+                              (respostaFormatoEntrega)="updateFromChild($event)"></mt-formato-entrega>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-comp-margem" *ngIf="servico?.id"><!--carrinho de pedido-->
+          <mt-exam-cart [origemServico]= "fOrigemServico()"></mt-exam-cart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- FIM DO CONTEÚDO -->

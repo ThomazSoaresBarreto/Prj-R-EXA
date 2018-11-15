@@ -1,0 +1,39 @@
+<div class="box-body menu-item-info-box">
+  <div class="row col-comp-margem alt-linha">
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickFotosExtraorais()">Fotos extraorais
+        <i  [ngClass] ="(!radiologiaService.isFotosExtraorais ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!radiologiaService.isFotosExtraorais">
+    <div class="row alt-linha-p">
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Frontal
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosExtraorais.isFrontal"  (click)="fFrontal()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Frontal Sorrindo
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosExtraorais.isFrontalSorrindo"  (click)="fFrontalSorrindo()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-6 col-sm-4 alt-linha-p">
+        <h5><label class="container">Perfil direito
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosExtraorais.isPerfilDireito"  (click)="fPerfilDireito()">
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+</div>

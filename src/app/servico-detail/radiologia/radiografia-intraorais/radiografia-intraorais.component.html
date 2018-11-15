@@ -1,0 +1,79 @@
+<div class="box-body menu-item-info-box">
+  <div class="row col-comp-margem alt-linha">
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickRadioIntraorais()">Radiografia intraorais
+        <i  [ngClass] ="(!radiologiaService.isRadioIntraorais ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!radiologiaService.isRadioIntraorais">
+    <div class="row alt-linha-p ">
+      <div class="col-xs-12 col-sm-12 alt-linha-p ">
+        <h5><label class="col-comp-margem">Periapical:
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-12 col-sm-4 alt-linha-p">
+        <h5><label class="container-p">Completo
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isCompleto"  (click)="fCompleto()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-12 col-sm-4  alt-linha-p">
+        <h5><label class="container-p">Odontograma
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isOdontograma"  (click)="fOdontograma()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-12 col-sm-4  alt-linha-p">
+        <h5><label class="container-p">Oclusal
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isOclusal"  (click)="fOclusal()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p ">
+      <div class="col-xs-12 col-sm-12 alt-linha-p ">
+        <h5><label class="col-comp-margem">Bite-wings:
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-12 col-sm-4 alt-linha-p">
+        <h5><label class="container-p">Direito
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isDireito"  (click)="fDireito()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-12 col-sm-4  alt-linha-p">
+        <h5><label class="container-p">Pré-molares
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isPreMolares"  (click)="fPreMolares()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p">
+      <div class="col-xs-12 col-sm-4 alt-linha-p">
+        <h5><label class="container-p">Esquerdo
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isEsquerdo"  (click)="fEsquerdo()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+      <div class="col-xs-12 col-sm-4  alt-linha-p">
+        <h5><label class="container-p">Molares
+          <input type="checkbox" name=""
+              [checked]="radiologiaService.fotosIntraorais.isMolares"  (click)="fMolares()">
+          <span class="checkmark-p" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+  </div>
+</div>

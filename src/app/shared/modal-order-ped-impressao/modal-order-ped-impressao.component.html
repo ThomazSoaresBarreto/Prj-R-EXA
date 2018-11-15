@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="modal fade" id="ModalPedImpressao" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="box box-solid" >
+          <div id="printSectionId2">
+            <div class="col-xs-12">
+              <br />
+              <b><h5>REQUISIÇÃO DE EXAME</h5></b>
+            </div>
+            <div class="col-xs-12">
+              <p>Data da requisição: {{orderPedExameService.orderPedExame.dtPedExame | date:'dd-MM-yyyy' }}</p>
+            </div>
+            <br />
+
+            <div class="col-xs-12">
+              <div>
+                Paciente: {{orderPedExameService.orderPedExame.nomPaciente}}
+              </div>
+              <div *ngIf="orderPedExameService.orderPedExame.emailPaciente !=''">
+                e-mail: {{orderPedExameService.orderPedExame.emailPaciente}}
+              </div>
+              <div *ngIf="orderPedExameService.orderPedExame.telPaciente !=''">
+                Tel.: {{orderPedExameService.orderPedExame.telPaciente}}
+              </div>
+              <div>
+                Endereço: {{orderPedExameService.orderPedExame.endPaciente}} {{orderPedExameService.orderPedExame.numEndPaciente}} {{orderPedExameService.orderPedExame.compEndPaciente}}
+              </div>
+              <br />
+              <div>
+                <mt-exam-lista-completa tipoOrigem= "Impressao"></mt-exam-lista-completa>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="box-footer ">
+            <a  class="search-link pull-right btn btn-default btn-sm btn-block"
+            (click)="printToCart('printSectionId2')"><b><i class="fa fa-reply-all" data-dismiss="modal">Imprimir</i></b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

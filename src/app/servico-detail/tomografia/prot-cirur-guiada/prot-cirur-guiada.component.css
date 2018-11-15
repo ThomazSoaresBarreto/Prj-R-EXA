@@ -1,0 +1,196 @@
+.titulo-laranja {
+  color: #cd7b53;
+  font-size:20px;
+  font-weight:bold;
+  text-align: left;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+
+.col-combo-label{
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: left;
+  margin-left: 0px;
+  font-size:15px;
+}
+
+.col-comp-margem{
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+.col-laud-imp-label{
+  padding-left: 3px;
+  padding-right: 0px;
+  padding-top: 0px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.Inf-opcao {
+  color: #cd7b53;
+  font-size:11px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding-top: 0px;
+}
+
+/*1 (check box maior) Customize the label (the container) */
+.container {
+  display: block;
+  position: sticky;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*2 (check box maior) Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/*3 (check box maior) Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid #c6c4c4;
+  border-width: 1px 1px 1px 1px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+/*4 (check box maior) On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #b2b0b0;
+}
+
+/*5 (check box maior) When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/*6 (check box maior) Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/*7 (check box maior) Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/*8 (check box maior) Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*9 (check box maior) Disabled the checkmark/indicator */
+.container input:disabled ~ .checkmark {
+  content: "";
+  opacity: 0.7;
+  background-color: #e0e0e0;
+}
+
+/*1 Customize the label (the container) */
+.container-p {
+  display: block;
+  position: sticky;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*2 Hide the browser's default checkbox */
+.container-p input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/*3 Create a custom checkbox */
+.checkmark-p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  border: solid #c6c4c4;
+  border-width: 1px 1px 1px 1px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+/*4 On mouse-over, add a grey background color */
+.container-p:hover input ~ .checkmark-p {
+  background-color: #b2b0b0;
+}
+
+/*5 When the checkbox is checked, add a blue background */
+.container-p input:checked ~ .checkmark-p {
+  background-color: #2196F3;
+}
+
+/*6 Create the checkmark/indicator (hidden when not checked) */
+.checkmark-p:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/*7 Show the checkmark when checked */
+.container-p input:checked ~ .checkmark-p:after {
+  display: block;
+}
+
+/*8 Style the checkmark/indicator */
+.container-p .checkmark-p:after {
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*9 Disabled the checkmark/indicator */
+.container-p input:disabled ~ .checkmark-p {
+  content: "";
+  opacity: 0.7;
+  background-color: #e0e0e0;
+}

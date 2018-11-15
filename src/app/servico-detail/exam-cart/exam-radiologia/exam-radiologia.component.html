@@ -1,0 +1,22 @@
+<div class="box box-solid">
+  <div class="box-header">
+    <i class="fa fa-shopping-cart"></i>
+    <h3 class="box-title">Radiologia Digital</h3>
+  </div>
+
+  <div class="box-body">
+    <div *ngIf="!radiologiaService.fExistRadiologia()"><!-- CARRINHO vazio -->
+      <p class="text-center">
+        Seu carrinho está vazio!
+      </p>
+    </div>
+    <mt-exam-radiologia-itens></mt-exam-radiologia-itens>
+    
+  </div>
+  <div class="box-footer">
+    <div class="pull-right">
+      <button type="button" [disabled]="!radiologiaService.fExistRadiologia()" class="btn btn-danger" (click)="clear()">
+        <i class="fa fa-trash"></i> Limpar Radiologia Digital</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="box-body menu-item-info-box"><!-- Outras finalidades -->
+  <div class="row col-comp-margem alt-linha"><!--titulo Outras finalidades -->
+    <button type="button" class="btn btn-link btn-xs titulo-laranja"
+        (click)="clickDocumentacaoDigital()">Documentação Digital
+        <i  [ngClass] ="(!tomografiaService.isDocumentacaoDigital ? 'fa fa-sort-amount-asc' : 'fa fa-level-up')"
+         ></i></button>
+  </div>
+
+  <div class="col-comp-margem" [hidden]="!tomografiaService.isDocumentacaoDigital">
+    <div class="row alt-linha"><!--Pesquisa de fratura e/ou perfuração-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Tomografia de face (Dicom) + Protocolo RITE
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.documentacaoDigital.isTcFaceProtRITE"
+              (change)='fMsgSnackBar(tomografiaService.documentacaoDigital.isTcFaceProtRITE, tomografiaService.documentacaoDigital.idTcFaceProtRITE)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">8 fotos
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.documentacaoDigital.is8Fotos"
+              (change)='fMsgSnackBar(tomografiaService.documentacaoDigital.is8Fotos, tomografiaService.documentacaoDigital.id8Fotos)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Escaneamento intraoral
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.documentacaoDigital.isEscaneamentoIntraoral"
+              (change)='fMsgSnackBar(tomografiaService.documentacaoDigital.isEscaneamentoIntraoral, tomografiaService.documentacaoDigital.idEscaneamentoIntraoral)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Modelo 3D impresso
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.documentacaoDigital.isModelo3DImpresso"
+              (change)='fMsgSnackBar(tomografiaService.documentacaoDigital.isModelo3DImpresso, tomografiaService.documentacaoDigital.idModelo3DImpresso)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+    <div class="row alt-linha-p"><!--Dente incluso-->
+      <div class="col-sm-12 alt-linha-p">
+        <h5><label class="container">Periapical completo com bite-wings
+          <input type="checkbox" name=""
+              [(ngModel)]="tomografiaService.documentacaoDigital.isPeriapicalCompBiteWings"
+              (change)='fMsgSnackBar(tomografiaService.documentacaoDigital.isPeriapicalCompBiteWings, tomografiaService.documentacaoDigital.idPeriapicalCompBiteWings)'>
+          <span class="checkmark" ></span>
+        </label></h5>
+      </div>
+    </div>
+
+  </div>
+</div>
